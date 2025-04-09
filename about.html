@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Luxury Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #0a1a2e;
+            --navy: #162a47;
+            --royal-blue: #1e3a8a;
+            --bright-blue: #3b82f6;
+            --light-blue: #93c5fd;
+            --pure-black: #000000;
+            --dark-gray: #1e293b;
+            --light-gray: #e2e8f0;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gold: #d7c08f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--light-blue);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--bright-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            font-size: 1.3rem;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--bright-blue);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+            opacity: 1;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            margin-left: 2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-icons a {
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            opacity: 0.9;
+            padding: 0;
+        }
+
+        .nav-icons a:hover {
+            color: var(--bright-blue);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .nav-icons a::after {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--white);
+        }
+
+        .mobile-menu:hover {
+            color: var(--bright-blue);
+        }
+
+        .fa-heart {
+            color: #ccc;
+            transition: color 0.3s;
+            margin-left: 5px;
+        }
+
+        .fa-heart:hover {
+            color: #ff0000; 
+            cursor: pointer;
+        }
+
+        .favorite-count {
+            display: none;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .favorite-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-page {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-header h1 {
+            font-size: 2.5rem;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text h2 {
+            font-size: 1.8rem;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: var(--bright-blue);
+            font-weight: 600;
+        }
+
+        /* Stats Section */
+        .stats-section1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-label {
+            color: var(--dark-gray);
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            position: relative;
+            height: 400px;
+            margin: 4rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .cta-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .cta-overlay h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-overlay p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-btn {
+            background:#162a47;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background:#0a1a2e;
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--pure-black);
+            color: white;
+            padding: 4rem 1rem 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--royal-blue), var(--bright-blue));
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+            color: white;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--bright-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 0.2rem 0;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--bright-blue);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-section p {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--bright-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            color: var(--light-gray);
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--bright-blue);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        .cart-count {
+            display: none;
+            background-color: var(--bright-blue);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .cart-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--deep-blue);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+                box-shadow: var(--shadow);
+                z-index: 100;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-overlay h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--bright-blue);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    min-width: 80px; /* Adjust based on your largest number + '+' */
+    text-align: center;
+    font-feature-settings: "tnum"; /* Use tabular numbers for equal width */
+    font-variant-numeric: tabular-nums; /* Modern alternative */
+}
+
+.stat-card {
+    contain: content;
+    will-change: transform;
+}
+
+.about-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--royal-blue), var(--bright-blue));
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+
+.testimonials {
+    padding: 50px 0;
+
+}
+
+.testimonial-carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.testimonial-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial {
+    min-width: 100%;
+    padding: 40px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.testimonial.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.testimonial > p {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    margin-left: 20px;
+}
+
+.author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section-header{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .section-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--royal-blue), var(--bright-blue));
+    margin: 1rem auto;
+    margin-top: 2rem;
+    border-radius: 2px;
+}
+
+.author-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.author-info p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    color: #666;
+    font-style: normal;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color:#1e3a8a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+    font-size: 1.2rem;
+}
+
+.carousel-arrow:hover {
+    background-color:#1e293b;
+}
+
+.prev-arrow {
+    left: -px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.next-arrow {
+    right: -0.1px;
+    margin-right: 10px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #1e3a8a;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Luxury Rentals</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent a Car</a></li>
+                <li><a href="list.html">List Your Car</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-icons">
+                    <a href="fav.html" class="favorite-link">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorite-count"></span>
+                    </a>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count"></span>
+                    </a>
+                    <a href="account.html" class="account-link" title="My Account">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="about-page">
+        <div class="about-header">
+            <h1>About Us</h1>
+        </div>
+
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&q=80" alt="Luxury Car">
+                
+                <div class="about-history" style="margin-top: 2rem;">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2015, Luxury Rentals began with a simple mission: to provide exceptional vehicles with unparalleled service. What started as a small fleet of premium cars has grown into Lebanon's premier luxury rental service.</p>
+                    <p>Our team of automotive enthusiasts carefully curates each vehicle in our collection, ensuring only the finest models meet our exacting standards.</p>
+                </div>
+            </div>
+
+            <div class="about-text">
+                <h2>We Always Provide The Best</h2>
+                <p>At Luxury Rentals, we're committed to delivering <span class="highlight">premium vehicles</span> with <span class="highlight">exceptional service</span>. Our fleet includes the latest models from the world's most prestigious manufacturers, all meticulously maintained for your safety and comfort.</p>
+                <p>We offer <span class="highlight">24/7 concierge service</span>, <span class="highlight">flexible rental terms</span>, and <span class="highlight">competitive pricing</span> to make your experience seamless from start to finish.</p>
+
+                <div class="stats-section1">
+                    <div class="stat-card">
+                        <div class="stat-number" id="cars-count">0</div>
+                        <div class="stat-label">Vehicles in Fleet</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="clients-count">0</div>
+                        <div class="stat-label">Satisfied Clients</div>
+                    </div>
+                    </div>
+                    <div class="stats-section1">
+                    <div class="stat-card">
+                        <div class="stat-number" id="years-count">0</div>
+                        <div class="stat-label">Years of Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="locations-count">0</div>
+                        <div class="stat-label">Locations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header" id="testimonials-header">
+                    <h2>What Our Clients Say</h2>
+                    <p>Hear from our valued customers about their experience with Luxury Rentals.</p>
+                </div>
+                
+                <div class="testimonial-carousel-container">
+                    <div class="carousel-arrow prev-arrow" id="prevArrow">
+                        &#8592;
+                    </div>
+                    
+                    <div class="carousel-arrow next-arrow" id="nextArrow">
+                        &#8594;
+                    </div>
+                    
+                    <div id="testimonialCarousel" class="testimonial-carousel">
+                        <div class="testimonial">
+                            <p>"Luxury Rentals provided me with the perfect car for my business trip. The service was impeccable, and the Ferrari 488 I rented turned heads everywhere I went. Their attention to detail made the entire experience truly luxurious."</p>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="./pics/mobile-03.jpg" alt="Client">
+                                </div>
+                                <div class="author-info">
+                                    <h4>James Anderson</h4>
+                                    <p>Executive Client</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial">
+                            <p>"My husband and I rented a Porsche 911 for our anniversary. The car was in pristine condition, and the staff went above and beyond to accommodate our special requests. Luxury Rentals made our celebration unforgettable!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="./pics/images.jpg" alt="Client">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Jane Bennett</h4>
+                                    <p>Luxury Car Enthusiast</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial">
+                            <p>"As a frequent traveler to Lebanon, I always rent my cars from Luxury Rentals. Their fleet is exceptional, their prices competitive, and their 24/7 roadside assistance gives me peace of mind. I wouldn't consider any other rental service!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="./pics/mobile-01.jpg" alt="Client">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sophia Clarke</h4>
+                                    <p>International Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="cta-section">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&q=80" alt="Rent Your Car Now" class="cta-image">
+            <div class="cta-overlay">
+                <h2>Rent Your Dream Car Now</h2>
+                <p>Experience luxury on the road with our premium collection of vehicles</p>
+                <a href="rent.html" class="cta-btn">Browse Fleet</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Luxury Rentals</h3>
+                <p>Premium car rental service providing exceptional vehicles and customer experience since 2015.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/rim-tarhini-79331a220/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rent.html">Our Fleet</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">Locations</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="service.html">Luxury Rentals</a></li>
+                    <li><a href="service.html">Corporate Accounts</a></li>
+                    <li><a href="service.html">Airport Services</a></li>
+                    <li><a href="service.html">Chauffeur Services</a></li>
+                    <li><a href="service.html">Long Term Leasing</a></li>
+                    <li><a href="service.html">Event Transportation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i>Hadath, Lebanon</li>
+                    <li><i class="fas fa-phone"></i>+961 76 746 958</li>
+                    <li><i class="fas fa-envelope"></i>rimtarhini10@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sun: 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Luxury Rentals. All Rights Reserved. | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateFavoriteCount();
+            updateCartCount();
+            setupMobileMenu();
+            animateStats();
+            initTestimonialCarousel();
+            
+            function updateFavoriteCount() {
+                const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                const favoriteCountElement = document.querySelector('.favorite-count');
+                
+                if (favoriteCountElement) {
+                    if (favorites.length > 0) {
+                        favoriteCountElement.textContent = favorites.length;
+                        favoriteCountElement.style.display = 'inline-block';
+                    } else {
+                        favoriteCountElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            function setupMobileMenu() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const navLinks = document.querySelector('.nav-links');
+                
+                if (mobileMenu && navLinks) {
+                    mobileMenu.addEventListener('click', function() {
+                        navLinks.classList.toggle('active');
+                    });
+                }
+            }
+
+            function animateStats() {
+                const stats = [
+                { element: 'cars-count', target: 60, duration: 1000 },
+                { element: 'clients-count', target: 700, duration: 1000 },
+                 { element: 'years-count', target: 8, duration: 1000 },
+                { element: 'locations-count', target: 5, duration: 1000 }
+            ];
+
+    // Pre-calculate the maximum width needed including the '+' sign
+    stats.forEach(stat => {
+        const element = document.getElementById(stat.element);
+        element.textContent = stat.target + '+'; // Set to max value with '+'
+        element.offsetWidth; // Force layout calculation
+        element.textContent = '0'; // Reset to 0 after measuring
+    });
+
+    stats.forEach(stat => {
+        const element = document.getElementById(stat.element);
+        const target = stat.target;
+        const duration = stat.duration;
+        const startTime = performance.now();
+        
+        function updateNumber(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const currentValue = Math.floor(progress * target);
+            
+            // Update number without '+' during animation
+            element.textContent = currentValue;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+            } else {
+                // Add '+' only when reaching the target
+                element.textContent = target + '+';
+            }
+        }
+        
+        requestAnimationFrame(updateNumber);
+    });
+}
+
+        }
+
+        );
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = document.querySelector('.nav-icons .fa-shopping-cart + .cart-count');
+            
+            if (cartCount) {
+                cartCount.textContent = cart.length;
+                cartCount.style.display = cart.length ? 'block' : 'none';
+            }
+        }
+
+       
+function initTestimonialCarousel() {
+    const testimonialCarousel = document.getElementById('testimonialCarousel');
+    const prevArrow = document.getElementById('prevArrow');
+    const nextArrow = document.getElementById('nextArrow');
+    const dotsContainer = document.getElementById('carouselDots');
+    
+    if (testimonialCarousel && prevArrow && nextArrow) {
+        let currentIndex = 0;
+        const testimonials = testimonialCarousel.querySelectorAll('.testimonial');
+        const totalTestimonials = testimonials.length;
+        
+        // Show the first testimonial
+        if (testimonials.length > 0) {
+            testimonials[0].classList.add('visible');
+        }
+        
+        // Only set up carousel if there are multiple testimonials
+        if (totalTestimonials > 1) {
+            // Create dots
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalTestimonials; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+            
+            // Update carousel position
+            function updateCarousel() {
+                // Hide all testimonials first
+                testimonials.forEach(t => {
+                    t.classList.remove('visible');
+                });
+                
+                // Make the current one visible
+                testimonials[currentIndex].classList.add('visible');
+                
+                testimonialCarousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update active dot
+                document.querySelectorAll('.dot').forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Go to specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                currentIndex = (currentIndex === 0) ? totalTestimonials - 1 : currentIndex - 1;
+                updateCarousel();
+            }
+            
+            // Next slide
+            function nextSlide() {
+                currentIndex = (currentIndex === totalTestimonials - 1) ? 0 : currentIndex + 1;
+                updateCarousel();
+            }
+            
+            // Add event listeners
+            prevArrow.addEventListener('click', prevSlide);
+            nextArrow.addEventListener('click', nextSlide);
+            
+            // Auto scroll
+            let autoScrollInterval = setInterval(nextSlide, 5000);
+            
+            // Pause auto scroll on hover
+            testimonialCarousel.parentElement.addEventListener('mouseenter', () => {
+                clearInterval(autoScrollInterval);
+            });
+            
+            testimonialCarousel.parentElement.addEventListener('mouseleave', () => {
+                autoScrollInterval = setInterval(nextSlide, 5000);
+            });
+            
+            // Initialize carousel
+            updateCarousel();
+        } else {
+            // If only one testimonial, hide arrows and dots
+            if (prevArrow) prevArrow.style.display = 'none';
+            if (nextArrow) nextArrow.style.display = 'none';
+            if (dotsContainer) dotsContainer.style.display = 'none';
+        }
+    }
+}
+
+    </script>
+</body>
+</html>

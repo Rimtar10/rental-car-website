@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Car Rentals | Premium Vehicles</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container">
+            <div class="road">
+                <div class="lane-markers"></div>
+                <div class="car-container">
+                    <div class="car">
+                        <i class="fas fa-car-side"></i>
+                        <div class="wheels">
+                            <div class="wheel"></div>
+                            <div class="wheel"></div>
+                        </div>
+                        <div class="exhaust"><i class="fas fa-smog"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loading-text">Starting Your Luxury Experience...</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+          
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Luxury Rentals</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent a Car</a></li>
+                <li><a href="list.html">List Your Car</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-icons">
+                    <a href="fav.html" class="favorite-link">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorite-count"></span>
+                    </a>  
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count"></span>
+                      </a>
+                    <a href="account.html" class="account-link" title="My Account">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-video-container">
+            <video autoplay muted loop class="hero-video">
+                <source src="./pics/158316-816359649.mp4" type="video/mp4">
+                <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fallback hero image">
+            </video>
+        </div>
+        <div class="hero-content">
+            <h1>Premium Car Rentals</h1>
+            <p>Experience luxury travel with our exclusive collection of high-end vehicles available for rent at competitive rates.</p>
+            <div class="cta-buttons">
+                <a href="rent.html" class="rental-btn browse-cars-btn">
+                    <i class="fas fa-search"></i> Browse cars
+                </a>
+                <button class="rental-btn add-car-btn"><a href="list.html" style="text-decoration: none; color: white;">
+                    <i class="fas fa-calendar-alt"></i> Add your car</a>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <!-- Search Section -->
+    <section class="search-section">
+        <h2 class="search-title">Find Your Perfect Rental</h2>
+        <form class="search-form" id="searchForm">
+            <div class="form-group">
+                <label for="location">Pickup Location</label>
+                <select class="form-control" id="location">
+                    <option value="">Select Location</option>
+                    <option value="airport">City Airport</option>
+                    <option value="downtown">Downtown</option>
+                    <option value="north">North District</option>
+                    <option value="south">South District</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pickup-date">Pickup Date</label>
+                <input type="date" class="form-control" id="pickup-date">
+            </div>
+            <div class="form-group">
+                <label for="return-date">Return Date</label>
+                <input type="date" class="form-control" id="return-date">
+            </div>
+            <div class="form-group">
+                <label for="car-type">Vehicle Type</label>
+                <select class="form-control" id="car-type">
+                    <option value="">All Types</option>
+                    <option value="luxury">Luxury Sedan</option>
+                    <option value="suv">Premium SUV</option>
+                    <option value="sports">Sports Car</option>
+                    <option value="convertible">Convertible</option>
+                </select>
+            </div>
+            
+            <!-- Centered Search Button -->
+            <div class="search-button-container">
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i> Search Vehicles
+                </button>
+            </div>
+        </form>
+        
+    </section>
+    
+    <section class="fleet">
+        <div class="section-title">
+            <h2>Our Premium Fleet</h2>
+            <p style="color: #0f172a;">Choose from our exclusive collection of luxury vehicles</p>
+        </div>
+        <div class="car-grid">
+            <!-- Car 1 -->
+            <div class="car-card">
+                <div class="car-image" style="background-image: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                <div class="car-info">
+                    <h3 class="car-title">BMW 7 Series <i class="fas fa-heart"></i></h3>
+                    <div class="car-price">$199 <span>/ day</span></div>
+                    <div class="car-details">
+                        <span><i class="fas fa-users"></i> 5 Seats</span>
+                        <span><i class="fas fa-tachometer-alt"></i> Automatic</span>
+                        <span><i class="fas fa-gas-pump"></i> Premium</span>
+                    </div>
+                    <div class="car-actions">
+                        <a href="#" class="view-details">Details</a>
+                        <a href="#" class="rent-now">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 2 -->
+            <div class="car-card">
+                <div class="car-image" style="background-image: url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                <div class="car-info">
+                    <h3 class="car-title">Mercedes GLE <i class="fas fa-heart"></i></h3>
+                    <div class="car-price">$249 <span>/ day</span></div>
+                    <div class="car-details">
+                        <span><i class="fas fa-users"></i> 5 Seats</span>
+                        <span><i class="fas fa-tachometer-alt"></i> Automatic</span>
+                        <span><i class="fas fa-gas-pump"></i> Premium</span>
+                    </div>
+                    <div class="car-actions">
+                        <a href="#" class="view-details">Details</a>
+                        <a href="#" class="rent-now">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 3 -->
+            <div class="car-card">
+                <div class="car-image" style="background-image: url('https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                <div class="car-info">
+                    <h3 class="car-title">Tesla Model S <i class="fas fa-heart"></i></h3>
+                    <div class="car-price">$229 <span>/ day</span></div>
+                    <div class="car-details">
+                        <span><i class="fas fa-users"></i> 5 Seats</span>
+                        <span><i class="fas fa-bolt"></i> Electric</span>
+                        <span><i class="fas fa-tachometer-alt"></i> Automatic</span>
+                    </div>
+                    <div class="car-actions">
+                        <a href="#" class="view-details">Details</a>
+                        <a href="#" class="rent-now">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 4 -->
+            <div class="car-card">
+                <div class="car-image" style="background-image: url('https://images.unsplash.com/photo-1634673970798-a15ae56f6c65?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"></div>
+                <div class="car-info">
+                    <h3 class="car-title">Porsche 911 <i class="fas fa-heart"></i></h3>
+                    <div class="car-price">$349 <span>/ day</span></div>
+                    <div class="car-details">
+                        <span><i class="fas fa-users"></i> 2 Seats</span>
+                        <span><i class="fas fa-tachometer-alt"></i> Automatic</span>
+                        <span><i class="fas fa-gas-pump"></i> Premium</span>
+                    </div>
+                    <div class="car-actions">
+                        <a href="#" class="view-details">Details</a>
+                        <a href="#" class="rent-now">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 5 -->
+            <div class="car-card">
+                <div class="car-image" style="background-image: url('https://images.unsplash.com/photo-1615715070496-d85daab3618d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8QXVkaSUyMFJTNnxlbnwwfHwwfHx8MA%3D%3D')"></div>
+                <div class="car-info">
+                    <h3 class="car-title">Audi RS6 <i class="fas fa-heart"></i></h3>
+                    <div class="car-price">$279 <span>/ day</span></div>
+                    <div class="car-details">
+                        <span><i class="fas fa-users"></i> 5 Seats</span>
+                        <span><i class="fas fa-tachometer-alt"></i> Automatic</span>
+                        <span><i class="fas fa-gas-pump"></i> Premium</span>
+                    </div>
+                    <div class="car-actions">
+                        <a href="#" class="view-details">Details</a>
+                        <a href="#" class="rent-now">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Car 6 -->
+            <div class="car-card">
+                <div class="car-image" style="background-image: url('https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                <div class="car-info">
+                    <h3 class="car-title">Lexus LC 500 <i class="fas fa-heart"></i></h3>
+                    <div class="car-price">$259 <span>/ day</span></div>
+                    <div class="car-details">
+                        <span><i class="fas fa-users"></i> 2 Seats</span>
+                        <span><i class="fas fa-tachometer-alt"></i> Automatic</span>
+                        <span><i class="fas fa-gas-pump"></i> Premium</span>
+                    </div>
+                    <div class="car-actions">
+                        <a href="#" class="view-details">Details</a>
+                        <a href="#" class="rent-now">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services-container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+                <p>Exceptional services for an exceptional experience</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card card-1">
+                    <div class="service-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3 class="service-title">Luxury Fleet</h3>
+                    <p>Only the finest vehicles from top manufacturers with regular maintenance and cleaning.</p>
+                </div>
+                <div class="service-card card-2">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="service-title">Multiple Locations</h3>
+                    <p>Convenient pickup and drop-off locations throughout the city and at major airports.</p>
+                </div>
+                <div class="service-card card-3">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="service-title">24/7 Support</h3>
+                    <p>Our concierge team is available around the clock to assist with any needs or questions.</p>
+                </div>
+                <div class="service-card card-4">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">Premium Insurance</h3>
+                    <p>Comprehensive coverage options for complete peace of mind during your rental.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>Client Testimonials</h2>
+            <p style="color: #0f172a;">What our customers say about their experience</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    The entire rental process was seamless. The car was in perfect condition and the staff was extremely professional. Will definitely use Luxury Rentals again for my next business trip.
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg')"></div>
+                    <div class="author-info">
+                        <h4>Michael Johnson</h4>
+                        <p>Business Executive</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    Renting the Porsche 911 for our anniversary weekend was the best decision. The car was immaculate and the drop-off process couldn't have been easier. Highly recommend!
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg')"></div>
+                    <div class="author-info">
+                        <h4>Sarah Williams</h4>
+                        <p>Happy Customer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    As a frequent traveler, I've used many rental companies. Luxury Rentals stands out for their attention to detail and premium vehicle selection. The Mercedes GLE was perfect for my needs.
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/75.jpg')"></div>
+                    <div class="author-info">
+                        <h4>David Chen</h4>
+                        <p>Frequent Traveler</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+<section class="special-offers" style="background: linear-gradient(to right, #0f172a, #1e293b); padding: 6rem 1.5rem; text-align: center;">
+    <div class="section-title">
+        <h2>Special Offers</h2>
+        <p>Exclusive deals for our valued customers</p>
+    </div>
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div class="offer-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow);">
+                <h3 style="color: var(--royal-blue); margin-bottom: 1rem;">Weekend Getaway</h3>
+                <p style="margin-bottom: 1.5rem;">Rent any luxury sedan for 3 days and get the 4th day free!</p>
+                <a href="service.html" style="background: var(--bright-blue); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">View Details</a>
+            </div>
+            <div class="offer-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow);">
+                <h3 style="color: var(--royal-blue); margin-bottom: 1rem;">Monthly Special</h3>
+                <p style="margin-bottom: 1.5rem;">20% off all monthly rentals of premium SUVs</p>
+                <a href="service.html" style="background: var(--bright-blue); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">View Details</a>
+            </div>
+            <div class="offer-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow);">
+                <h3 style="color: var(--royal-blue); margin-bottom: 1rem;">Business Travel</h3>
+                <p style="margin-bottom: 1.5rem;">Corporate accounts receive complimentary upgrades</p>
+                <a href="service.html" style="background: var(--bright-blue); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- FAQ Section -->
+  <section class="faq">
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+      <p style="color:#1e293b">Quick answers to common questions</p>
+    </div>
+    <div style="margin-top: 3rem;">
+      <div class="faq-item">
+        <h3 class="faq-question">What are your rental requirements?</h3>
+        <div class="faq-answer">
+          <p>Renters must be at least 25 years old with a valid driver's license and major credit card. International renters must present a passport and international driver's license.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">What is your cancellation policy?</h3>
+        <div class="faq-answer">
+          <p>Reservations may be cancelled up to 24 hours before pickup with no penalty. Late cancellations may incur a fee equivalent to one day's rental.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Do you offer one-way rentals?</h3>
+        <div class="faq-answer">
+          <p>Yes, we offer one-way rentals between our locations for an additional fee. Please contact our reservations team for details.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">What payment methods do you accept?</h3>
+        <div class="faq-answer">
+          <p>We accept all major credit cards (Visa, MasterCard, American Express, Discover) as well as debit cards with sufficient funds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Luxury Rentals</h3>
+                <p>Premium car rental service providing exceptional vehicles and customer experience since 2015.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/rim-tarhini-79331a220/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rent.html">Our Fleet</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">Locations</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="service.html">Luxury Rentals</a></li>
+                    <li><a href="service.html">Corporate Accounts</a></li>
+                    <li><a href="service.html">Airport Services</a></li>
+                    <li><a href="service.html">Chauffeur Services</a></li>
+                    <li><a href="service.html">Long Term Leasing</a></li>
+                    <li><a href="service.html">Event Transportation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i>Hadath, Lebanon</li>
+                    <li><i class="fas fa-phone"></i>+961 76 746 958</li>
+                    <li><i class="fas fa-envelope"></i>rimtarhini10@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sun: 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Luxury Rentals. All Rights Reserved. | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

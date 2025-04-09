@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Listed Cars | Luxury Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #0a1a2e;
+            --navy: #162a47;
+            --royal-blue: #1e3a8a;
+            --bright-blue: #3b82f6;
+            --light-blue: #93c5fd;
+            --pure-black: #000000;
+            --dark-gray: #1e293b;
+            --light-gray: #e2e8f0;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--light-blue);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--bright-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            font-size: 1.3rem;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--bright-blue);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+            opacity: 1;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            margin-left: 2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-icons a {
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            opacity: 0.9;
+            padding: 0;
+        }
+
+        .nav-icons a:hover {
+            color: var(--bright-blue);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .nav-icons a::after {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--white);
+        }
+
+        .mobile-menu:hover {
+            color: var(--bright-blue);
+        }
+
+        .fa-heart {
+            color: #ccc; /* default gray color */
+            transition: color 0.3s;
+            margin-left: 5px;
+        }
+
+        .fa-heart:hover {
+            color: #ff0000; 
+            cursor: pointer;
+        }
+
+        .favorite-count {
+            display: none;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .favorite-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--deep-blue);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .no-cars {
+            text-align: center;
+            padding: 3rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .no-cars i {
+            font-size: 3rem;
+            color: var(--light-blue);
+            margin-bottom: 1rem;
+        }
+
+        .no-cars h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--deep-blue);
+        }
+
+        .no-cars p {
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--bright-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--royal-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        .btn-secondary:hover {
+            background-color: #cbd5e1;
+        }
+
+        .btn-danger {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+
+        /* Car Card */
+        .car-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .car-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .car-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .car-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            color: var(--deep-blue);
+        }
+
+        .car-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bright-blue);
+            margin-bottom: 1rem;
+        }
+
+        .car-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--dark-gray);
+        }
+
+        .car-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        .car-details span {
+            display: flex;
+            align-items: center;
+        }
+
+        .car-details i {
+            margin-right: 5px;
+            color: var(--bright-blue);
+        }
+
+        .car-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .car-actions button {
+            flex: 1;
+        }
+
+        /* Plus box */
+        .plus-box {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--bright-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .plus-box:hover {
+            transform: scale(1.1);
+            background-color: var(--royal-blue);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Edit Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: var(--shadow);
+            animation: modalFade 0.3s;
+        }
+
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--deep-blue);
+        }
+
+        .close {
+            color: var(--dark-gray);
+            font-size: 1.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close:hover {
+            color: var(--bright-blue);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .form-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--bright-blue);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--deep-blue);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+                box-shadow: var(--shadow);
+                z-index: 100;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .car-actions {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 1rem;
+            }
+        }
+
+        /* Loader */
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+        }
+
+        .loader {
+            border: 5px solid var(--light-gray);
+            border-top: 5px solid var(--bright-blue);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        
+.cart-count {
+    display: none;
+    background-color: var(--bright-blue); /* Using your blue variable */
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.cart-link {
+    position: relative;
+    display: inline-block;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Luxury Rentals</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent a Car</a></li>
+                <li><a href="list.html">List Your Car</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-icons">
+                    <a href="fav.html" class="favorite-link">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorite-count"></span>
+                    </a>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count"></span>
+                    </a>
+                    <a href="account.html" class="account-link" title="My Account">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Your Listed Cars</h1>
+        
+        <div id="carsList" class="cars-grid">
+            <!-- Loading placeholder -->
+            <div class="loader-container">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Car button -->
+    <div class="plus-box" title="Add New Car">
+        <i class="fas fa-plus"></i>
+    </div>
+
+    <!-- Edit Car Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Edit Car Details</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="editCarForm">
+                <input type="hidden" id="editCarId">
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editBrand">Brand*</label>
+                            <input type="text" id="editBrand" name="editBrand" required>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editModel">Model*</label>
+                            <input type="text" id="editModel" name="editModel" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editYear">Year*</label>
+                            <input type="number" id="editYear" name="editYear" min="1900" max="2030" required>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editTransmission">Transmission*</label>
+                            <select id="editTransmission" name="editTransmission" required>
+                                <option value="">Select transmission type</option>
+                                <option value="Automatic">Automatic</option>
+                                <option value="Manual">Manual</option>
+                                <option value="Semi-Automatic">Semi-Automatic</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editFuelType">Fuel Type*</label>
+                            <select id="editFuelType" name="editFuelType" required>
+                                <option value="">Select fuel type</option>
+                                <option value="Gasoline">Gasoline</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Electric">Electric</option>
+                                <option value="Hybrid">Hybrid</option>
+                                <option value="Premium">Premium</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editSeats">Seats*</label>
+                            <input type="number" id="editSeats" name="editSeats" min="1" max="20" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editColor">Color</label>
+                            <input type="text" id="editColor" name="editColor">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editMileage">Mileage (miles)</label>
+                            <input type="number" id="editMileage" name="editMileage" min="0">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editPrice">Daily Rate (in $)*</label>
+                            <input type="number" id="editPrice" name="editPrice" min="0" step="1" required>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="editLocation">Location*</label>
+                            <input type="text" id="editLocation" name="editLocation" placeholder="City, State" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editDescription">Description</label>
+                    <textarea id="editDescription" name="editDescription" rows="4" placeholder="Tell potential renters what makes your car special..."></textarea>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update favorite count from localStorage
+            updateFavoriteCount();
+            
+            // Set up mobile menu toggle
+            setupMobileMenu();
+            
+            // Set up the plus button functionality
+            setupPlusButton();
+            
+            // Load cars
+            loadCars();
+            
+            // Set up modal functionality
+            setupModal();
+            
+            // Function to update favorite count in the header
+            function updateFavoriteCount() {
+                const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                const favoriteCountElement = document.querySelector('.favorite-count');
+                
+                if (favoriteCountElement) {
+                    if (favorites.length > 0) {
+                        favoriteCountElement.textContent = favorites.length;
+                        favoriteCountElement.style.display = 'inline-block';
+                    } else {
+                        favoriteCountElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Function to handle mobile menu
+            function setupMobileMenu() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const navLinks = document.querySelector('.nav-links');
+                
+                if (mobileMenu && navLinks) {
+                    mobileMenu.addEventListener('click', function() {
+                        navLinks.classList.toggle('active');
+                    });
+                }
+            }
+            
+            // Function to set up the plus button
+            function setupPlusButton() {
+                const plusBox = document.querySelector('.plus-box');
+                if (plusBox) {
+                    plusBox.addEventListener('click', function() {
+                        window.location.href = 'add.html';
+                    });
+                }
+            }
+            
+            // Function to load and display cars
+            function loadCars() {
+                const carsList = document.getElementById('carsList');
+                const cars = JSON.parse(localStorage.getItem('listedCars')) || [];
+                
+                // Clear the loading placeholder
+                carsList.innerHTML = '';
+                
+                if (cars.length === 0) {
+                    // Show message when no cars are listed
+                    carsList.innerHTML = `
+                        <div class="no-cars">
+                            <i class="fas fa-car"></i>
+                            <h3>No cars listed yet</h3>
+                            <p>Add your first car to start renting it out.</p>
+                            <a href="add.html" class="btn btn-primary">Add a Car</a>
+                        </div>
+                    `;
+                } else {
+                    // Display listed cars
+                    cars.forEach(car => {
+                        const carElement = createCarElement(car);
+                        carsList.appendChild(carElement);
+                    });
+                }
+            }
+            
+            // Function to create a car element
+            function createCarElement(car) {
+                const div = document.createElement('div');
+                div.className = 'car-card';
+                div.dataset.id = car.id;
+                
+                // Use the first image as the card image
+                const imageUrl = car.images && car.images.length > 0 ? car.images[0] : '';
+                
+                div.innerHTML = `
+                    <div class="car-image" style="background-image: url('${imageUrl}')"></div>
+                    <div class="car-info">
+                        <h3 class="car-title">${car.brand} ${car.model} <i class="fas fa-heart"></i></h3>
+                        <div class="car-price">$${car.price} <span>/ day</span></div>
+                        <div class="car-details">
+                            <span><i class="fas fa-calendar-year"></i> ${car.year}</span>
+                            <span><i class="fas fa-users"></i> ${car.seats} Seats</span>
+                            <span><i class="fas fa-tachometer-alt"></i> ${car.transmission}</span>
+                            <span><i class="fas fa-gas-pump"></i> ${car.fuelType}</span>
+                        </div>
+                        <div class="car-actions">
+                            <button class="btn btn-secondary edit-car" data-id="${car.id}">Edit</button>
+                            <button class="btn btn-danger delete-car" data-id="${car.id}">Delete</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Add event listeners for edit and delete buttons
+                const editButton = div.querySelector('.edit-car');
+                const deleteButton = div.querySelector('.delete-car');
+                
+                editButton.addEventListener('click', function() {
+                    const carId = this.dataset.id;
+                    openEditModal(carId);
+                });
+                
+                deleteButton.addEventListener('click', function() {
+                    const carId = this.dataset.id;
+                    deleteCar(carId);
+                });
+                
+                return div;
+            }
+            
+            // Function to set up modal
+            function setupModal() {
+                const modal = document.getElementById('editModal');
+                const closeBtn = modal.querySelector('.close');
+                const cancelBtn = document.getElementById('cancelEdit');
+                const editForm = document.getElementById('editCarForm');
+                
+                // Close modal when X is clicked
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+                
+                // Close modal when Cancel is clicked
+                cancelBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+                
+                // Close modal when clicking outside the modal content
+                window.addEventListener('click', function(event) {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+                
+                // Submit edit form
+                editForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    updateCar();
+                });
+            }
+            
+            function openEditModal(carId) {
+                const cars = JSON.parse(localStorage.getItem('listedCars')) || [];
+                const car = cars.find(car => car.id.toString() === carId.toString());
+                
+                if (!car) return;
+                
+                document.getElementById('editCarId').value = car.id;
+                document.getElementById('editBrand').value = car.brand;
+                document.getElementById('editModel').value = car.model;
+                document.getElementById('editYear').value = car.year;
+                document.getElementById('editTransmission').value = car.transmission;
+                document.getElementById('editFuelType').value = car.fuelType;
+                document.getElementById('editSeats').value = car.seats;
+                document.getElementById('editColor').value = car.color || '';
+                document.getElementById('editMileage').value = car.mileage || '';
+                document.getElementById('editPrice').value = car.price;
+                document.getElementById('editLocation').value = car.location;
+                document.getElementById('editDescription').value = car.description || '';
+                
+                // Show modal
+                document.getElementById('editModal').style.display = 'block';
+            }
+            
+            // Function to update car data
+            function updateCar() {
+                const carId = document.getElementById('editCarId').value;
+                const cars = JSON.parse(localStorage.getItem('listedCars')) || [];
+                const carIndex = cars.findIndex(car => car.id.toString() === carId.toString());
+                
+                if (carIndex === -1) return;
+                
+                // Get form data
+                const updatedCar = {
+                    ...cars[carIndex],
+                    brand: document.getElementById('editBrand').value,
+                    model: document.getElementById('editModel').value,
+                    year: document.getElementById('editYear').value,
+                    transmission: document.getElementById('editTransmission').value,
+                    fuelType: document.getElementById('editFuelType').value,
+                    seats: document.getElementById('editSeats').value,
+                    color: document.getElementById('editColor').value,
+                    mileage: document.getElementById('editMileage').value,
+                    price: document.getElementById('editPrice').value,
+                    location: document.getElementById('editLocation').value,
+                    description: document.getElementById('editDescription').value
+                };
+                
+                // Update car in array
+                cars[carIndex] = updatedCar;
+                
+                // Save to localStorage
+                localStorage.setItem('listedCars', JSON.stringify(cars));
+                
+                // Close modal
+                document.getElementById('editModal').style.display = 'none';
+                
+                // Reload cars display
+                loadCars();
+                
+                // Show success message
+                alert('Car details updated successfully!');
+            }
+            
+            // Function to delete a car
+            function deleteCar(carId) {
+                if (!confirm('Are you sure you want to delete this car?')) return;
+                
+                let cars = JSON.parse(localStorage.getItem('listedCars')) || [];
+                cars = cars.filter(car => car.id.toString() !== carId.toString());
+                
+                // Save updated list to localStorage
+                localStorage.setItem('listedCars', JSON.stringify(cars));
+                
+                // Reload cars display
+                loadCars();
+                
+                // Show success message
+                alert('Car has been deleted successfully!');
+            }
+        });
+
+        function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartCount = document.querySelector('.nav-icons .fa-shopping-cart + .cart-count');
+  
+  if (cartCount) {
+    cartCount.textContent = cart.length;
+    cartCount.style.display = cart.length ? 'block' : 'none';
+  }
+}
+
+// Call this whenever the cart changes
+updateCartCount();
+    </script>
+</body>
+</html>

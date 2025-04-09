@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Services | Luxury Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #0a1a2e;
+            --navy: #162a47;
+            --royal-blue: #1e3a8a;
+            --bright-blue: #3b82f6;
+            --light-blue: #93c5fd;
+            --pure-black: #000000;
+            --dark-gray: #1e293b;
+            --light-gray: #e2e8f0;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--light-blue);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--bright-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            font-size: 1.3rem;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--bright-blue);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+            opacity: 1;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            margin-left: 2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-icons a {
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            opacity: 0.9;
+            padding: 0;
+        }
+
+        .nav-icons a:hover {
+            color: var(--bright-blue);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .nav-icons a::after {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--white);
+        }
+
+        .mobile-menu:hover {
+            color: var(--bright-blue);
+        }
+
+        .fa-heart {
+            color: #ccc;
+            transition: color 0.3s;
+            margin-left: 5px;
+        }
+
+        .fa-heart:hover {
+            color: #ff0000; 
+            cursor: pointer;
+        }
+
+        .favorite-count {
+            display: none;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .favorite-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .services-hero {
+            background: linear-gradient(rgba(10, 26, 46, 0.9), rgba(10, 26, 46, 0.9)), 
+                        url('https://images.unsplash.com/photo-1493238792000-8113da705763?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--bright-blue);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--bright-blue), var(--royal-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            color: var(--deep-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+            color: var(--dark-gray);
+        }
+
+        .service-features i {
+            color: var(--bright-blue);
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+
+        /* Special Offers Section */
+        .special-offers {
+            background: linear-gradient(to right, var(--deep-blue), var(--navy));
+            padding: 6rem 2rem;
+            margin: 5rem 0;
+            position: relative;
+        }
+
+        .special-offers::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--bright-blue), var(--light-blue));
+        }
+
+        .special-offers .section-title h2,
+        .special-offers .section-title p {
+            color: var(--white);
+        }
+
+        .special-offers .section-title h2::after {
+            background: var(--light-blue);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .offer-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .offer-card h3 {
+            color: var(--light-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .offer-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--light-blue);
+        }
+
+        .offer-card p {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .offer-details {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .offer-details li {
+            margin-bottom: 0.8rem;
+            color: var(--light-gray);
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .offer-details i {
+            color: var(--light-blue);
+            position: absolute;
+            left: 0;
+            top: 4px;
+        }
+
+        .offer-cta {
+            display: inline-block;
+            color: var(--white);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .offer-cta:hover {
+            color: var(--light-blue);
+            border-bottom-color: var(--white);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--pure-black);
+            color: white;
+            padding: 4rem 1rem 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--royal-blue), var(--bright-blue));
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+            color: white;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--bright-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 0.2rem 0;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--bright-blue);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-section p {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--bright-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            color: var(--light-gray);
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--bright-blue);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        .cart-count {
+            display: none;
+            background-color: var(--bright-blue);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .cart-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .offers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--deep-blue);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+                box-shadow: var(--shadow);
+                z-index: 100;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        .rental-process {
+        background-color: #f9fafc;
+        padding: 6rem 2rem;
+        position: relative;
+    }
+    
+    .rental-process .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+        color: var(--deep-blue);
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .section-header h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--bright-blue);
+        border-radius: 2px;
+    }
+    
+    .section-header p {
+        color: var(--dark-gray);
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        counter-reset: step-counter;
+    }
+    
+    .process-step {
+        background: white;
+        border-radius: 12px;
+        padding: 2.5rem 2rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        border-top: 4px solid var(--bright-blue);
+    }
+    
+    .process-step:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step-number {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: rgba(59, 130, 246, 0.1);
+        line-height: 1;
+    }
+    
+    .step-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--bright-blue), var(--royal-blue));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: white;
+        font-size: 1.5rem;
+    }
+    
+    .process-step h3 {
+        font-size: 1.4rem;
+        color: var(--deep-blue);
+        margin-bottom: 1rem;
+    }
+    
+    .process-step p {
+        color: var(--dark-gray);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+    
+    .step-features {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+    
+    .step-features span {
+        display: flex;
+        align-items: center;
+        color: var(--dark-gray);
+        font-size: 0.95rem;
+    }
+    
+    .step-features i {
+        color: var(--bright-blue);
+        margin-right: 8px;
+        font-size: 0.8rem;
+    }
+    
+    @media (max-width: 768px) {
+        .rental-process {
+            padding: 4rem 1.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+        }
+        
+        .process-steps {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Luxury Rentals</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent a Car</a></li>
+                <li><a href="list.html">List Your Car</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-icons">
+                    <a href="fav.html" class="favorite-link">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorite-count"></span>
+                    </a>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count"></span>
+                    </a>
+                    <a href="account.html" class="account-link" title="My Account">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="services-hero">
+            <div class="hero-content">
+                <h1>Our Premium Services</h1>
+                <p>Experience the ultimate in luxury transportation with our comprehensive range of services designed for discerning clients</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-container">
+            <div class="section-title">
+                <h2>Exceptional Services</h2>
+                <p>We go beyond standard rentals to provide a complete luxury experience tailored to your needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Luxury Fleet -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3 class="service-title">Luxury Fleet</h3>
+                    <p>Our collection features only the most prestigious vehicles from top manufacturers, meticulously maintained to perfection.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Latest models from Mercedes, BMW, Audi & more</li>
+                        <li><i class="fas fa-check"></i> Daily professional detailing</li>
+                        <li><i class="fas fa-check"></i> Premium fuel included</li>
+                        <li><i class="fas fa-check"></i> Regular maintenance checks</li>
+                        <li><i class="fas fa-check"></i> Comprehensive vehicle history</li>
+                    </ul>
+                </div>
+                
+                <!-- Multiple Locations -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="service-title">Multiple Locations</h3>
+                    <p>Access our premium vehicles at convenient locations throughout the city and major transportation hubs.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Airport terminals with meet-and-greet</li>
+                        <li><i class="fas fa-check"></i> Downtown luxury hotel partners</li>
+                        <li><i class="fas fa-check"></i> Business district hubs</li>
+                        <li><i class="fas fa-check"></i> Valet delivery service available</li>
+                        <li><i class="fas fa-check"></i> 24/7 key drop-off</li>
+                    </ul>
+                </div>
+                
+                <!-- 24/7 Support -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="service-title">24/7 Support</h3>
+                    <p>Our dedicated concierge team is always available to ensure your complete satisfaction and peace of mind.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Multilingual support staff</li>
+                        <li><i class="fas fa-check"></i> Immediate roadside assistance</li>
+                        <li><i class="fas fa-check"></i> Emergency vehicle replacement</li>
+                        <li><i class="fas fa-check"></i> Priority reservation changes</li>
+                        <li><i class="fas fa-check"></i> Personal travel assistance</li>
+                    </ul>
+                </div>
+                
+                <!-- Premium Insurance -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title">Premium Insurance</h3>
+                    <p>Comprehensive protection plans that go beyond standard coverage for complete peace of mind.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Zero-deductible options</li>
+                        <li><i class="fas fa-check"></i> Personal effects coverage</li>
+                        <li><i class="fas fa-check"></i> Worldwide protection</li>
+                        <li><i class="fas fa-check"></i> Medical expense coverage</li>
+                        <li><i class="fas fa-check"></i> 24/7 claims assistance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers Section -->
+        <section class="special-offers">
+            <div class="services-container">
+                <div class="section-title">
+                    <h2>Exclusive Special Offers</h2>
+                    <p>Take advantage of these limited-time opportunities to enhance your luxury experience</p>
+                </div>
+                
+                <div class="offers-grid">
+                    <!-- Weekend Getaway -->
+                    <div class="offer-card">
+                        <h3>Weekend Getaway</h3>
+                        <p>Perfect for your luxury escape with extended benefits and premium service.</p>
+                        <ul class="offer-details">
+                            <li><i class="fas fa-star"></i> Rent any luxury sedan for 3 days, get the 4th day free</li>
+                            <li><i class="fas fa-star"></i> Complimentary late return until 2pm on final day</li>
+                            <li><i class="fas fa-star"></i> Free GPS navigation system included</li>
+                            <li><i class="fas fa-star"></i> Priority vehicle selection</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Monthly Special -->
+                    <div class="offer-card">
+                        <h3>Monthly Special</h3>
+                        <p>Ideal for extended luxury travel with significant savings and perks.</p>
+                        <ul class="offer-details">
+                            <li><i class="fas fa-star"></i> 20% off all monthly rentals of premium SUVs</li>
+                            <li><i class="fas fa-star"></i> Unlimited mileage included</li>
+                            <li><i class="fas fa-star"></i> Complimentary maintenance during rental</li>
+                            <li><i class="fas fa-star"></i> Free vehicle exchange every 10 days</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Business Travel -->
+                    <div class="offer-card">
+                        <h3>Business Travel</h3>
+                        <p>Tailored solutions for corporate clients with premium advantages.</p>
+                        <ul class="offer-details">
+                            <li><i class="fas fa-star"></i> Complimentary vehicle upgrades</li>
+                            <li><i class="fas fa-star"></i> Priority service at all locations</li>
+                            <li><i class="fas fa-star"></i> Dedicated account manager</li>
+                            <li><i class="fas fa-star"></i> Consolidated billing options</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rental-process">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Seamless Rental Process</h2>
+                    <p>Experience luxury from the first click to the final return</p>
+                </div>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Browse Our Fleet</h3>
+                        <p>Explore our curated collection of luxury vehicles, with detailed specifications and lots of images.</p>
+                        <div class="step-features">
+                            <span><i class="fas fa-check"></i> Filter by category</span>
+                            <span><i class="fas fa-check"></i> Compare models</span>
+                            <span><i class="fas fa-check"></i> Save favorites</span>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Select Dates & Options</h3>
+                        <p>Choose your rental period and customize with premium add-ons for your journey.</p>
+                        <div class="step-features">
+                            <span><i class="fas fa-check"></i> Flexible durations</span>
+                            <span><i class="fas fa-check"></i> Insurance options</span>
+                            <span><i class="fas fa-check"></i> Special requests</span>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <h3>Easy Booking</h3>
+                        <p>Complete your reservation in minutes with our secure digital paperwork.</p>
+                        <div class="step-features">
+                            <span><i class="fas fa-check"></i> Digital contracts</span>
+                            <span><i class="fas fa-check"></i> Secure payment</span>
+                            <span><i class="fas fa-check"></i> Instant confirmation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <h3>Vehicle Delivery</h3>
+                        <p>Receive your luxury vehicle at your preferred location, ready for your adventure.</p>
+                        <div class="step-features">
+                            <span><i class="fas fa-check"></i> Airport pickup</span>
+                            <span><i class="fas fa-check"></i> Hotel delivery</span>
+                            <span><i class="fas fa-check"></i> Remote locations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h3>Enjoy Your Journey</h3>
+                        <p>Experience unparalleled comfort and performance with 24/7 support.</p>
+                        <div class="step-features">
+                            <span><i class="fas fa-check"></i> Concierge service</span>
+                            <span><i class="fas fa-check"></i> Roadside assistance</span>
+                            <span><i class="fas fa-check"></i> Vehicle exchanges</span>
+                        </div>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div class="step-icon">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <h3>Simple Return</h3>
+                        <p>Conclude your rental with our hassle-free return process.</p>
+                        <div class="step-features">
+                            <span><i class="fas fa-check"></i> Flexible drop-off</span>
+                            <span><i class="fas fa-check"></i> After-hours returns</span>
+                            <span><i class="fas fa-check"></i> Digital receipt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Luxury Rentals</h3>
+                <p>Premium car rental service providing exceptional vehicles and customer experience since 2015.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/rim-tarhini-79331a220/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rent.html">Our Fleet</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">Locations</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="service.html">Luxury Rentals</a></li>
+                    <li><a href="service.html">Corporate Accounts</a></li>
+                    <li><a href="service.html">Airport Services</a></li>
+                    <li><a href="service.html">Chauffeur Services</a></li>
+                    <li><a href="service.html">Long Term Leasing</a></li>
+                    <li><a href="service.html">Event Transportation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i>Hadath, Lebanon</li>
+                    <li><i class="fas fa-phone"></i>+961 76 746 958</li>
+                    <li><i class="fas fa-envelope"></i>rimtarhini10@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sun: 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Luxury Rentals. All Rights Reserved. | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update favorite count from localStorage
+            updateFavoriteCount();
+            
+            // Set up mobile menu toggle
+            setupMobileMenu();
+            
+            // Function to update favorite count in the header
+            function updateFavoriteCount() {
+                const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                const favoriteCountElement = document.querySelector('.favorite-count');
+                
+                if (favoriteCountElement) {
+                    if (favorites.length > 0) {
+                        favoriteCountElement.textContent = favorites.length;
+                        favoriteCountElement.style.display = 'inline-block';
+                    } else {
+                        favoriteCountElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Function to handle mobile menu
+            function setupMobileMenu() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const navLinks = document.querySelector('.nav-links');
+                
+                if (mobileMenu && navLinks) {
+                    mobileMenu.addEventListener('click', function() {
+                        navLinks.classList.toggle('active');
+                    });
+                }
+            }
+        });
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = document.querySelector('.nav-icons .fa-shopping-cart + .cart-count');
+            
+            if (cartCount) {
+                cartCount.textContent = cart.length;
+                cartCount.style.display = cart.length ? 'block' : 'none';
+            }
+        }
+
+        // Call this whenever the cart changes
+        updateCartCount();
+    </script>
+</body>
+</html>

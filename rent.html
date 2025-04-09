@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Luxury Cars | Premium Vehicle Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+   
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Luxury Rentals</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent a Car</a></li>
+                <li><a href="list.html">List Your Car</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-icons">
+                    <a href="fav.html" class="favorite-link">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorite-count"></span>
+                    </a>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count"></span>
+                    </a>
+                    <a href="account.html" class="account-link" title="My Account">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section class="hero">
+        <h1>Find Your Perfect Luxury Rental</h1>
+        <p>Choose from our exclusive collection of premium vehicles and experience unparalleled comfort and performance.</p>
+    </section>
+    
+  <section class="search-section">
+    <h2 class="search-title">Find Your Perfect Rental</h2>
+    <form class="search-form" id="searchForm">
+        <div class="form-group">
+            <label for="car-name">Car Name</label>
+            <input type="text" class="form-control" id="car-name" placeholder="Enter car make or model (e.g. BMW 7 Series)">
+        </div>
+        <div class="form-group">
+            <label for="min-price">Min Price ($)</label>
+            <input type="number" class="form-control" id="min-price" min="0" placeholder="Minimum price per day">
+        </div>
+        <div class="form-group">
+            <label for="max-price">Max Price ($)</label>
+            <input type="number" class="form-control" id="max-price" min="0" placeholder="Maximum price per day">
+        </div>
+        <div class="form-group">
+            <label for="car-type">Vehicle Type</label>
+            <select class="form-control" id="car-type">
+                <option value="">All Types</option>
+                <option value="luxury">Luxury Sedan</option>
+                <option value="suv">Premium SUV</option>
+                <option value="sports">Sports Car</option>
+                <option value="convertible">Convertible</option>
+                <option value="electric">Electric Vehicle</option>
+                <option value="coupe">Luxury Coupe</option>
+            </select>
+        </div>
+        <div class="search-button-container">
+            <button type="submit" class="search-button">
+                <i class="fas fa-search"></i> Search Vehicles
+            </button>
+        </div>
+    </form>
+</section>
+        
+    
+    <section class="section">
+        <div class="section-title">
+            <h2>Browse By Category</h2>
+            <p>Explore our curated vehicle categories</p>
+        </div>
+        
+        <div class="collections-container">
+            <div class="collections-slider" id="collectionsSlider">
+                <!-- Sports Cars -->
+                <a href="#" class="collection-card" data-category="sports">
+                    <img src="https://www.datocms-assets.com/27230/1685477005-2023-chevrolet-corvette-z06-front.jpg?w=1024&auto=compress,enhance" alt="Sports Cars" class="collection-image">
+                    <div class="collection-overlay">
+                        <h3 class="collection-title">Sports Cars</h3>
+                        <p class="collection-count">6 vehicles available</p>
+                    </div>
+                </a>
+                
+                <!-- SUVs -->
+                <a href="#" class="collection-card" data-category="suv">
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SUVs" class="collection-image">
+                    <div class="collection-overlay">
+                        <h3 class="collection-title">SUVs</h3>
+                        <p class="collection-count">6 vehicles available</p>
+                    </div>
+                </a>
+                
+                <!-- Luxury Sedans -->
+                <a href="#" class="collection-card" data-category="luxury">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury Sedans" class="collection-image">
+                    <div class="collection-overlay">
+                        <h3 class="collection-title">Luxury Sedans</h3>
+                        <p class="collection-count">6 vehicles available</p>
+                    </div>
+                </a>
+                
+                <!-- Convertibles -->
+                <a href="#" class="collection-card" data-category="convertible">
+                    <img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/BMW/Z4/10183/1685003672330/front-left-side-47.jpg" alt="Convertibles" class="collection-image">
+                    <div class="collection-overlay">
+                        <h3 class="collection-title">Convertibles</h3>
+                        <p class="collection-count">4 vehicles available</p>
+                    </div>
+                </a>
+                
+                <!-- Electric Vehicles -->
+                <a href="#" class="collection-card" data-category="electric">
+                    <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Electric Vehicles" class="collection-image">
+                    <div class="collection-overlay">
+                        <h3 class="collection-title">Electric Vehicles</h3>
+                        <p class="collection-count">4 vehicles available</p>
+                    </div>
+                </a>
+                
+                <!-- Luxury Coupes -->
+                <a href="#" class="collection-card" data-category="coupe">
+                    <img src="https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury Coupes" class="collection-image">
+                    <div class="collection-overlay">
+                        <h3 class="collection-title">Luxury Coupes</h3>
+                        <p class="collection-count">4 vehicles available</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="slider-nav">
+                <button class="slider-btn" id="prevCollection">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn" id="nextCollection">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" style="background-color: #f1f5f9;">
+        <div class="section-title">
+            <h2>Our Luxury Vehicles</h2>
+            <p>Find your dream Car!</p>
+        </div>
+        
+        <div class="featured-grid" id="featuredCars">
+            <!-- Featured cars will be loaded here -->
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Luxury Rentals</h3>
+                <p>Premium car rental service providing exceptional vehicles and customer experience since 2015.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/rim-tarhini-79331a220/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rent.html">Our Fleet</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">Locations</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="service.html">Luxury Rentals</a></li>
+                    <li><a href="service.html">Corporate Accounts</a></li>
+                    <li><a href="service.html">Airport Services</a></li>
+                    <li><a href="service.html">Chauffeur Services</a></li>
+                    <li><a href="service.html">Long Term Leasing</a></li>
+                    <li><a href="service.html">Event Transportation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i>Hadath, Lebanon</li>
+                    <li><i class="fas fa-phone"></i>+961 76 746 958</li>
+                    <li><i class="fas fa-envelope"></i>rimtarhini10@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sun: 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Luxury Rentals. All Rights Reserved. | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+    
+    <script src="s2.js"></script>
+</body>
+</html>

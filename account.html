@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Luxury Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #0a1a2e;
+            --navy: #162a47;
+            --royal-blue: #1e3a8a;
+            --bright-blue: #3b82f6;
+            --light-blue: #93c5fd;
+            --pure-black: #000000;
+            --dark-gray: #1e293b;
+            --light-gray: #e2e8f0;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--light-blue);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--bright-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            font-size: 1.3rem;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--bright-blue);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+            opacity: 1;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            margin-left: 2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-icons a {
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            opacity: 0.9;
+            padding: 0;
+        }
+
+        .nav-icons a:hover {
+            color: var(--bright-blue);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .nav-icons a::after {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--white);
+        }
+
+        .mobile-menu:hover {
+            color: var(--bright-blue);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .account-container {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        /* Sign In/Register Form */
+        .auth-container {
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .auth-container h1 {
+            color: var(--navy);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--bright-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+
+        .auth-btn {
+            background-color: var(--bright-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .auth-btn:hover {
+            background-color: var(--royal-blue);
+            transform: translateY(-2px);
+        }
+
+        /* User Account Page */
+        .account-header {
+            background-color: var(--deep-blue);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 100px;
+            height: 100px;
+            background-color: var(--bright-blue);
+            border-radius: 50%;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-avatar i {
+            font-size: 40px;
+            color: white;
+        }
+
+        .user-welcome h2 {
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+
+        .user-welcome p {
+            opacity: 0.8;
+        }
+
+        .account-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .account-tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .account-tab.active {
+            border-bottom: 3px solid var(--bright-blue);
+            color: var(--bright-blue);
+            font-weight: 600;
+        }
+
+        .account-tab:hover:not(.active) {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .tab-content {
+            padding: 30px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Messages Tab */
+        .messages-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .message {
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .message-title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .message-date {
+            color: var(--dark-gray);
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        .message-body {
+            color: var(--dark-gray);
+        }
+
+        .no-messages {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--dark-gray);
+            opacity: 0.7;
+        }
+
+        /* Settings Tab */
+        .settings-section {
+            margin-bottom: 30px;
+        }
+
+        .settings-section h3 {
+            margin-bottom: 20px;
+            color: var(--navy);
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 10px;
+        }
+
+        .logout-btn {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            background-color: #dc2626;
+            transform: translateY(-2px);
+        }
+
+        .save-changes-btn {
+            background-color: var(--bright-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .save-changes-btn:hover {
+            background-color: var(--royal-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--pure-black);
+            color: white;
+            padding: 4rem 1rem 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--royal-blue), var(--bright-blue));
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+            color: white;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--bright-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 0.2rem 0;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--bright-blue);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-section p {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--bright-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            color: var(--light-gray);
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--bright-blue);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        .cart-count {
+            display: none;
+            background-color: var(--bright-blue);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .cart-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .success-message {
+            background-color: #10b981;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-message {
+            background-color: #ef4444;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--deep-blue);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+                box-shadow: var(--shadow);
+                z-index: 100;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .account-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .user-avatar {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .account-tabs {
+                flex-direction: column;
+            }
+
+            .account-tab {
+                text-align: center;
+                border-left: none;
+                border-right: none;
+            }
+
+            .account-tab.active {
+                border-bottom: 3px solid var(--bright-blue);
+            }
+        }
+
+        .fa-heart {
+            color: #ccc;
+            transition: color 0.3s;
+            margin-left: 5px;
+        }
+
+        .fa-heart:hover {
+            color: #ff0000; 
+            cursor: pointer;
+        }
+
+        .favorite-count {
+            display: none;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .favorite-link {
+            position: relative;
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Luxury Rentals</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent a Car</a></li>
+                <li><a href="list.html">List Your Car</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="nav-icons">
+                    <a href="fav.html" class="favorite-link">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorite-count"></span>
+                    </a>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count"></span>
+                    </a>
+                    <a href="account.html" class="account-link" title="My Account">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <!-- Sign In/Register Container -->
+        <div id="auth-container" class="account-container auth-container">
+            <h1>Sign In to Your Account</h1>
+            <div id="success-message" class="success-message"></div>
+            <div id="error-message" class="error-message"></div>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create a password">
+            </div>
+            <button id="signin-btn" class="auth-btn">Sign In</button>
+        </div>
+
+        <!-- User Account Container -->
+        <div id="account-container" class="account-container" style="display: none;">
+            <div class="account-header">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-welcome">
+                    <h2>Welcome, <span id="user-name">User</span></h2>
+                    <p>Manage your account and messages</p>
+                </div>
+            </div>
+
+            <div class="account-tabs">
+                <div class="account-tab active" data-tab="messages">
+                    <i class="fas fa-envelope"></i> Messages
+                </div>
+                <div class="account-tab" data-tab="settings">
+                    <i class="fas fa-cog"></i> Account Settings
+                </div>
+            </div>
+
+            <div id="messages-tab" class="tab-content active">
+                <div class="messages-container" id="messages-container">
+                    <div class="no-messages">
+                        <i class="fas fa-envelope-open" style="font-size: 40px; margin-bottom: 20px; color: var(--light-blue);"></i>
+                        <h3>No Messages Yet</h3>
+                        <p>Your inbox is empty. Messages from Luxury Rentals will appear here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings-tab" class="tab-content">
+                <div class="settings-section">
+                    <h3>Change Password</h3>
+                    <div id="settings-success-message" class="success-message"></div>
+                    <div id="settings-error-message" class="error-message"></div>
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" placeholder="Enter your current password">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" placeholder="Enter your new password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm New Password</label>
+                        <input type="password" id="confirm-password" placeholder="Confirm your new password">
+                    </div>
+                    <button id="change-password-btn" class="save-changes-btn">Change Password</button>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Sign Out</h3>
+                    <p>Sign out of your account. This will remove your session from this device.</p>
+                    <button id="logout-btn" class="logout-btn">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Luxury Rentals</h3>
+                <p>Premium car rental service providing exceptional vehicles and customer experience since 2015.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/rim-tarhini-79331a220/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rent.html">Our Fleet</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">Locations</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="service.html">Luxury Rentals</a></li>
+                    <li><a href="service.html">Corporate Accounts</a></li>
+                    <li><a href="service.html">Airport Services</a></li>
+                    <li><a href="service.html">Chauffeur Services</a></li>
+                    <li><a href="service.html">Long Term Leasing</a></li>
+                    <li><a href="service.html">Event Transportation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i>Hadath, Lebanon</li>
+                    <li><i class="fas fa-phone"></i>+961 76 746 958</li>
+                    <li><i class="fas fa-envelope"></i>rimtarhini10@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sun: 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Luxury Rentals. All Rights Reserved. | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--bright-blue); text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.account-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+                
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                
+                button.classList.add('active');
+                
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                document.getElementById(`${tabName}-tab`).classList.add('active');
+            });
+        });
+
+        function checkLoggedIn() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                // User is logged in
+                document.getElementById('auth-container').style.display = 'none';
+                document.getElementById('account-container').style.display = 'block';
+                document.getElementById('user-name').textContent = user.name;
+                
+                // Add sample message for demo purposes
+                const messagesContainer = document.getElementById('messages-container');
+                if (messagesContainer.querySelector('.no-messages')) {
+                    // Add a welcome message
+                    const welcomeMessage = createMessage(
+                        'Welcome to Luxury Rentals',
+                        'Thank you for creating an account with Luxury Rentals. We\'re excited to help you find the perfect vehicle for your needs. If you have any questions, please don\'t hesitate to contact us.',
+                        new Date().toISOString()
+                    );
+                    messagesContainer.innerHTML = '';
+                    messagesContainer.appendChild(welcomeMessage);
+                }
+            } else {
+                // User is not logged in
+                document.getElementById('auth-container').style.display = 'block';
+                document.getElementById('account-container').style.display = 'none';
+            }
+        }
+
+        // Create message element
+        function createMessage(title, body, date) {
+            const messageDate = new Date(date);
+            const formattedDate = messageDate.toLocaleDateString() + ' ' + messageDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            const messageEl = document.createElement('div');
+            messageEl.className = 'message';
+            messageEl.innerHTML = `
+                <div class="message-header">
+                    <div class="message-title">${title}</div>
+                    <div class="message-date">${formattedDate}</div>
+                </div>
+                <div class="message-body">${body}</div>
+            `;
+            return messageEl;
+        }
+
+        // Handle sign in
+        const signinBtn = document.getElementById('signin-btn');
+        signinBtn.addEventListener('click', () => {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+            
+            // Simple validation
+            if (!name || !email || !password) {
+                errorMessage.textContent = 'Please fill in all fields';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                errorMessage.textContent = 'Please enter a valid email address';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+            
+            if (password.length < 6) {
+                errorMessage.textContent = 'Password must be at least 6 characters';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+            
+            // Create user object
+            const user = {
+                name,
+                email,
+                password,
+                dateJoined: new Date().toISOString(),
+                messages: [
+                    {
+                        title: 'Welcome to Luxury Rentals',
+                        body: 'Thank you for creating an account with Luxury Rentals. We\'re excited to help you find the perfect vehicle for your needs. If you have any questions, please don\'t hesitate to contact us.',
+                        date: new Date().toISOString(),
+                        read: false
+                    }
+                ]
+            };
+            
+            // Save to localStorage
+            localStorage.setItem('user', JSON.stringify(user));
+            
+            // Show success message and then redirect to account page
+            successMessage.textContent = 'Sign in successful! Redirecting to your account...';
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+            
+            setTimeout(() => {
+                checkLoggedIn();
+            }, 1500);
+        });
+
+        // Handle change password
+        const changePasswordBtn = document.getElementById('change-password-btn');
+        changePasswordBtn.addEventListener('click', () => {
+            const currentPassword = document.getElementById('current-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            const errorMessage = document.getElementById('settings-error-message');
+            const successMessage = document.getElementById('settings-success-message');
+            
+            // Get current user
+            const user = JSON.parse(localStorage.getItem('user'));
+            
+            // Validation
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                errorMessage.textContent = 'Please fill in all password fields';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+            
+            if (currentPassword !== user.password) {
+                errorMessage.textContent = 'Current password is incorrect';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+            
+            if (newPassword.length < 6) {
+                errorMessage.textContent = 'New password must be at least 6 characters';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                errorMessage.textContent = 'New password and confirm password do not match';
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+                return;
+            }
+            
+            // Update password
+            user.password = newPassword;
+            localStorage.setItem('user', JSON.stringify(user));
+            
+            // Show success message
+            successMessage.textContent = 'Password changed successfully!';
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+            
+            // Clear password fields
+            document.getElementById('current-password').value = '';
+            document.getElementById('new-password').value = '';
+            document.getElementById('confirm-password').value = '';
+        });
+
+        // Handle logout
+        const logoutBtn = document.getElementById('logout-btn');
+        logoutBtn.addEventListener('click', () => {
+            // Remove user data from localStorage
+            localStorage.removeItem('user');
+            
+            // Redirect to sign in page
+            document.getElementById('account-container').style.display = 'none';
+            document.getElementById('auth-container').style.display = 'block';
+            
+            // Clear form fields
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+            
+            // Show success message
+            const successMessage = document.getElementById('success-message');
+            successMessage.textContent = 'You have been signed out successfully';
+            successMessage.style.display = 'block';
+            
+            // Hide error message
+            document.getElementById('error-message').style.display = 'none';
+        });
+
+        // Email validation helper
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update favorite count from localStorage
+            updateFavoriteCount();
+            
+            // Set up mobile menu toggle
+            setupMobileMenu();
+            
+            // Function to update favorite count in the header
+            function updateFavoriteCount() {
+                const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                const favoriteCountElement = document.querySelector('.favorite-count');
+                
+                if (favoriteCountElement) {
+                    if (favorites.length > 0) {
+                        favoriteCountElement.textContent = favorites.length;
+                        favoriteCountElement.style.display = 'inline-block';
+                    } else {
+                        favoriteCountElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Function to handle mobile menu
+            function setupMobileMenu() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const navLinks = document.querySelector('.nav-links');
+                
+                if (mobileMenu && navLinks) {
+                    mobileMenu.addEventListener('click', function() {
+                        navLinks.classList.toggle('active');
+                    });
+                }
+            }
+        });
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = document.querySelector('.nav-icons .fa-shopping-cart + .cart-count');
+            
+            if (cartCount) {
+                cartCount.textContent = cart.length;
+                cartCount.style.display = cart.length ? 'block' : 'none';
+            }
+        }
+
+        // Call this whenever the cart changes
+        updateCartCount();
+
+        checkLoggedIn();
+
+        window.addEventListener('storage', (event) => {
+    if (event.key === 'user') {
+        checkLoggedIn();
+    }
+});
+
+    </script>
+</body>
+</html>

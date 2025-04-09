@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Luxury Cars | Premium Vehicle Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+    --deep-blue: #0a1a2e;
+    --navy: #162a47;
+    --royal-blue: #1e3a8a;
+    --bright-blue: #3b82f6;
+    --light-blue: #93c5fd;
+    --pure-black: #000000;
+    --dark-gray: #1e293b;
+    --light-gray: #e2e8f0;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: var(--dark-gray);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    background-color: var(--deep-blue);
+    color: var(--white);
+    padding: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.logo:hover {
+    color: var(--light-blue);
+}
+
+.logo i {
+    margin-right: 10px;
+    color: var(--bright-blue);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+    position: relative;
+    font-size: 1.3rem;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: var(--transition);
+    opacity: 0.9;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bright-blue);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--light-blue);
+    opacity: 1;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+.nav-icons {
+    margin-left: 2rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-icons a {
+    color: var(--white);
+    font-size: 1.2rem;
+    transition: var(--transition);
+    opacity: 0.9;
+    padding: 0;
+}
+
+.nav-icons a:hover {
+    color: var(--bright-blue);
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.nav-icons a::after {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--white);
+}
+
+.mobile-menu:hover {
+    color: var(--bright-blue);
+}
+
+
+
+.fa-heart {
+    color: #ccc; /* default gray color */
+    transition: color 0.3s;
+    margin-left: 5px;
+}
+
+.fa-heart:hover {
+    color: #ff0000; 
+    cursor: pointer;
+}
+
+
+.favorite-count {
+    display: none;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.favorite-link {
+    position: relative;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide nav links by default */
+        flex-direction: column; /* Stack links vertically */
+        background-color: var(--deep-blue);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: var(--shadow);
+        z-index: 100;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links li {
+        margin: 0;
+        padding: 0.8rem 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu {
+        display: block; /* Show burger menu */
+    }
+}
+
+footer {
+    background-color: var(--pure-black);
+    color: white;
+    padding: 4rem 1rem 2rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--royal-blue), var(--bright-blue));
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    position: relative;
+    display: inline-block;
+    color: white;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--bright-blue);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+    padding: 0.2rem 0;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bright-blue);
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.footer-section p {
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--bright-blue);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.contact-info {
+    list-style: none;
+}
+
+.contact-info li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    color: var(--light-gray);
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: var(--bright-blue);
+    font-size: 1.1rem;
+    margin-top: 3px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.cart-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.cart-item img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.car-specs {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.car-specs span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.checkout-btn {
+  background: var(--bright-blue);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.checkout-btn:hover {
+  background: var(--royal-blue);
+}
+
+.cart-count {
+    display: none;
+    background-color: var(--bright-blue); /* Using your blue variable */
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+.cart-link {
+    position: relative;
+    display: inline-block;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 2rem;
+  color: var(--dark-gray);
+}
+
+.cart-item {
+  position: relative; /* For absolute positioning of delete button */
+}
+
+.delete-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #dc2626;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.delete-btn:hover {
+  color: #b91c1c;
+  transform: scale(1.1);
+}
+
+    </style>
+</head>
+<body>
+   
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Luxury Rentals</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rent.html">Rent a Car</a></li>
+                <li><a href="list.html">List Your Car</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-icons">
+                    <a href="fav.html" class="favorite-link">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorite-count"></span>
+                    </a>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count"></span>
+                      </a>
+                    <a href="account.html" class="account-link" title="My Account">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="cart-container" id="cartContainer">
+        <!-- Cart items will be loaded here -->
+        <a href="check.html"><div class="cart-actions">
+          <button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button>
+        </div></a>
+      </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update favorite count from localStorage
+            updateFavoriteCount();
+            
+            // Set up mobile menu toggle
+            setupMobileMenu();
+            
+            // Function to update favorite count in the header
+            function updateFavoriteCount() {
+                const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                const favoriteCountElement = document.querySelector('.favorite-count');
+                
+                if (favoriteCountElement) {
+                    if (favorites.length > 0) {
+                        favoriteCountElement.textContent = favorites.length;
+                        favoriteCountElement.style.display = 'inline-block';
+                    } else {
+                        favoriteCountElement.style.display = 'none';
+                    }
+                }
+            }
+            
+            // Function to handle mobile menu
+            function setupMobileMenu() {
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const navLinks = document.querySelector('.nav-links');
+                
+                if (mobileMenu && navLinks) {
+                    mobileMenu.addEventListener('click', function() {
+                        navLinks.classList.toggle('active');
+                    });
+                }
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartContainer = document.getElementById('cartContainer');
+  
+        // Add item count display
+        const itemCount = document.createElement('div');
+        itemCount.className = 'cart-count-display';
+        itemCount.innerHTML = `<h2>Your Cart (${cart.length} ${cart.length === 1 ? 'item' : 'items'})</h2>`;
+        cartContainer.prepend(itemCount);
+  
+        if (cart.length === 0) {
+            cartContainer.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+            return;
+        }
+
+  let cartHTML = '';
+  cart.forEach((car, index) => {
+    cartHTML += `
+      <div class="cart-item" data-car-id="${car.id}">
+        <img src="${car.image}" alt="${car.make} ${car.model}">
+        <div class="cart-item-details">
+          <h3>${car.make} ${car.model}</h3>
+          <p>$${car.price}/day</p>
+          <div class="car-specs">
+            <span><i class="fas fa-users"></i> ${car.seats}</span>
+            <span><i class="fas fa-tachometer-alt"></i> ${car.transmission}</span>
+            <span><i class="${car.fuel === 'Electric' ? 'fas fa-bolt' : 'fas fa-gas-pump'}"></i> ${car.fuel}</span>
+          </div>
+        </div>
+        <button class="delete-btn" data-index="${index}">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    `;
+  });
+
+  // Insert items before the checkout button
+  cartContainer.insertAdjacentHTML('afterbegin', cartHTML);
+  
+  // Add delete button functionality
+  document.querySelectorAll('.delete-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      const index = this.dataset.index;
+      removeFromCart(index);
+    });
+  });
+  
+});
+
+function removeFromCart(index) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  location.reload(); // Refresh to show updated cart
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartCount = document.querySelector('.nav-icons .fa-shopping-cart + .cart-count');
+  
+  if (cartCount) {
+    cartCount.textContent = cart.length;
+    cartCount.style.display = cart.length ? 'block' : 'none';
+  }
+}
+
+// Call this whenever the cart changes
+updateCartCount();
+
+    </script>
+    </body>
+</html>
