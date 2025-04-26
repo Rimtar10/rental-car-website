@@ -28,13 +28,12 @@ body {
 
 /* Header */
 header {
-    background-color: var(--deep-blue);
-    color: var(--white);
-    padding: 1.2rem;
+    /*background-color: #96c1c8;*/
+    background: #dedfeb;
+    color: #273F83;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: var(--shadow);
     transition: var(--transition);
 }
 
@@ -42,7 +41,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -51,17 +50,12 @@ nav {
     font-weight: bold;
     display: flex;
     align-items: center;
-    color: var(--white);
     transition: var(--transition);
 }
 
-.logo:hover {
-    color: var(--light-blue);
-}
 
 .logo i {
     margin-right: 10px;
-    color: var(--bright-blue);
 }
 
 .nav-links {
@@ -76,7 +70,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: #273F83;
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 0;
@@ -97,7 +91,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--light-blue);
+    color: #1b3fa3;
     opacity: 1;
 }
 
@@ -113,7 +107,7 @@ nav {
 }
 
 .nav-icons a {
-    color: var(--white);
+    color: #273F83;
     font-size: 1.2rem;
     transition: var(--transition);
     opacity: 0.9;
@@ -121,7 +115,7 @@ nav {
 }
 
 .nav-icons a:hover {
-    color: var(--bright-blue);
+    color: #18295a;
     opacity: 1;
     transform: translateY(-2px);
 }
@@ -203,7 +197,6 @@ nav {
     position: relative;
     z-index: 2; 
     animation: fadeInUp 1s ease-out;
-    
     border-radius: 10px; /* Optional */
 }
 
@@ -261,7 +254,7 @@ nav {
 
 /* Primary Button (formerly btn-primary) */
 .browse-cars-btn {
-    background-color: var(--bright-blue);
+    background-color: #273F83;
     color: var(--white);
     text-decoration: none;
 }
@@ -276,7 +269,7 @@ nav {
 .add-car-btn {
     background-color: transparent;
     color: var(--white);
-    border: 2px solid var(--bright-blue);
+    border: 2px solid #1b306c;
 }
 
 .add-car-btn:hover {
@@ -313,7 +306,7 @@ nav {
 .search-title {
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--deep-blue);
+    color: #273F83;
     font-size: 1.8rem;
 }
 
@@ -321,6 +314,7 @@ nav {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 gap: 1.5rem;
+color: #273F83;
 align-items: center;
 }
 
@@ -332,12 +326,13 @@ align-items: center;
     display: block;
     margin-bottom: 0.8rem;
     font-weight: 600;
-    color: var(--deep-blue);
+    color: #273F83;
 }
 
 .form-control {
     width: 100%;
     padding: 1rem;
+    color: #273F83;
     border: 1px solid var(--light-gray);
     border-radius: 8px;
     font-size: 1rem;
@@ -347,14 +342,14 @@ align-items: center;
 
 .form-control:focus {
     outline: none;
-    border-color: var(--bright-blue);
+    border-color: #273F83;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .form-group button {
     width: 100%;
     padding: 1rem;
-    background-color: var(--deep-blue);
+    background-color: #273F83;
     color: white;
     border: none;
     border-radius: 8px;
@@ -365,7 +360,7 @@ align-items: center;
 }
 
 .form-group button:hover {
-    background-color: var(--royal-blue);
+    background-color: #273F83;
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(10, 26, 46, 0.3);
 }
@@ -380,7 +375,7 @@ margin-top: 1rem;
 
 .search-button {
 padding: 1rem 2rem;
-background-color: var(--deep-blue);
+background-color: #273F83;
 color: white;
 border: none;
 border-radius: 8px;
@@ -412,7 +407,7 @@ font-size: 1.2rem;
 
 
 .fa-heart {
-    color: #ccc; /* default gray color */
+    color: #273F83; /* default gray color */
     transition: color 0.3s;
     margin-left: 5px;
 }
@@ -463,7 +458,7 @@ font-size: 1.2rem;
 
 .section-title h2 {
     font-size: 2.2rem;
-    color: var(--deep-blue);
+    color: #273F83;
     margin-bottom: 1rem;
 }
 
@@ -578,7 +573,7 @@ font-size: 1.2rem;
     padding: 10px 20px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 11px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
@@ -588,6 +583,7 @@ font-size: 1.2rem;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    ;
 }
 
 
@@ -612,7 +608,7 @@ font-size: 1.2rem;
 }
 
 .btn-primary {
-    background-color: var(--royal-blue);
+    background-color: #273F83;
     color: white;
     border: 2px solid var(--royal-blue);
     text-decoration: none;
@@ -641,7 +637,7 @@ font-size: 1.2rem;
 }
 
 .services {
-background: linear-gradient(to right, #0f172a, #1e293b);
+background: url(./pics/bg2.png);
 padding: 6rem 1.5rem;
 color: white;
 text-align: center;
@@ -655,7 +651,7 @@ margin: 0 auto;
 .section-title h2 {
 font-size: 2.2rem;
 font-weight: 700;
-color: var(--bright-blue);
+color: var(--white);
 margin-bottom: 1rem;
 }
 
@@ -687,8 +683,8 @@ grid-template-columns: 1fr; /* 1 per row for small screens */
 
 
 .service-card {
-background: rgba(255, 255, 255, 0.08);
-padding: 2rem 1.5rem; /* Reduced padding */
+background: white;
+padding: 2rem 1.5rem; 
 border-radius: 12px;
 text-align: center;
 transition: all 0.3s ease-in-out;
@@ -703,29 +699,22 @@ height: 100%;
 
 
 .card-1, .card-3 {
-    border-radius: 30px 0 0 30px;
-    border-bottom-right-radius:30px ;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 30px;
 }
 
 .card-2, .card-4 {
-    border-radius: 0 30px 30px 0;
-    border-bottom-left-radius:30px;
-    border-top-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius:30px ;
 }
 
 
 .service-card:hover {
 transform: translateY(-12px);
-background: rgba(255, 255, 255, 0.15);
 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
 .service-icon {
 font-size: 3rem;
-color:#3b82f6;
+color:#273F83;
 margin-bottom: 1.5rem;
 transition: transform 0.3s ease-in-out;
 }
@@ -735,6 +724,7 @@ transform: scale(1.2);
 }
 
 .service-title {
+color: #273F83;
 font-size: 1.4rem;
 font-weight: 700;
 margin-bottom: 1rem;
@@ -742,7 +732,7 @@ margin-bottom: 1rem;
 
 .service-card p {
 font-size: 1rem;
-color: rgba(255, 255, 255, 0.75);
+color: #273F83;
 line-height: 1.6;
 }
 
@@ -755,7 +745,6 @@ left: -10px;
 width: calc(100% + 20px);
 height: calc(100% + 20px);
 border-radius: 16px;
-background: linear-gradient(45deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
 opacity: 0;
 transition: opacity 0.4s ease-in-out;
 z-index: -1;
@@ -1283,7 +1272,7 @@ max-height: 200px;
 
 .cart-count {
     display: none;
-    background-color: var(--bright-blue); /* Using your blue variable */
+    background-color: var(--bright-blue);
     color: white;
     border-radius: 50%;
     width: 18px;
@@ -1302,7 +1291,49 @@ max-height: 200px;
 }
 
 
-
+/* Add to your style.css file */
+#logo-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+  }
+  
+  .logo-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 150px;
+  }
+  
+  .logo-part {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    height: 100%;
+  }
+  
+  .logo-part img {
+    height: 100%;
+    width: auto;
+  }
+  
+  .visible {
+    opacity: 1;
+  }
 
 
 

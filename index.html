@@ -10,34 +10,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-container">
-            <div class="road">
-                <div class="lane-markers"></div>
-                <div class="car-container">
-                    <div class="car">
-                        <i class="fas fa-car-side"></i>
-                        <div class="wheels">
-                            <div class="wheel"></div>
-                            <div class="wheel"></div>
-                        </div>
-                        <div class="exhaust"><i class="fas fa-smog"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="loading-text">Starting Your Luxury Experience...</div>
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-          
+
+    <!-- Add this right after opening <body> tag -->
+<div id="logo-loading-overlay">
+    <div class="logo-loader">
+      <div class="logo-container">
+        <div id="logo-part-1" class="logo-part">
+          <img src="./pics/logo2.png" alt="Logo Part 1">
         </div>
+        <div id="logo-part-2" class="logo-part">
+          <img src="./pics/logo3.png" alt="Logo Part 2">
+        </div>
+        <div id="logo-part-3" class="logo-part">
+          <img src="./pics/logo4.png" alt="Logo Part 3">
+        </div>
+      </div>
     </div>
+  </div>
+  
 
     <header>
         <nav>
-            <div class="logo">
-                <i class="fas fa-car"></i>
-                <span>Luxury Rentals</span>
+            <div class="logo" style="margin-top: -50px;">
+               <img src="./pics/logo1.png" alt="Luxury Rentals Logo" style="width: 150px; height: 200px; margin-bottom: -50px;">
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -134,8 +129,8 @@
     
     <section class="fleet">
         <div class="section-title">
-            <h2>Our Premium Fleet</h2>
-            <p style="color: #0f172a;">Choose from our exclusive collection of luxury vehicles</p>
+            <h2 style="color: #273F83;">Our Premium Fleet</h2>
+            <p style="color: #273F83;">Choose from our exclusive collection of luxury vehicles</p>
         </div>
         <div class="car-grid">
             <!-- Car 1 -->
@@ -256,29 +251,29 @@
             </div>
             <div class="services-grid">
                 <div class="service-card card-1">
-                    <div class="service-icon">
-                        <i class="fas fa-car-side"></i>
+                    <div class="service-icon" style="margin-top: -50px;">
+                        <img src="./pics/car.png" alt="Luxury Car Icon" style="width: 130px; height: 170px; margin-bottom: -70px;">
                     </div>
-                    <h3 class="service-title">Luxury Fleet</h3>
+                    <h3 class="service-title" style="padding: 0px; margin-top: 0px;">Luxury Fleet</h3>
                     <p>Only the finest vehicles from top manufacturers with regular maintenance and cleaning.</p>
                 </div>
                 <div class="service-card card-2">
-                    <div class="service-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                    <div class="service-icon" style="margin-top: -50px;">
+                        <img src="./pics/location.png" alt="Luxury Car Icon" style="width: 130px; height: 170px; margin-bottom: -70px;">
                     </div>
                     <h3 class="service-title">Multiple Locations</h3>
                     <p>Convenient pickup and drop-off locations throughout the city and at major airports.</p>
                 </div>
                 <div class="service-card card-3">
-                    <div class="service-icon">
-                        <i class="fas fa-headset"></i>
+                    <div class="service-icon" style="margin-top: -50px;">
+                        <img src="./pics/support.png" alt="Luxury Car Icon" style="width: 130px; height: 170px; margin-bottom: -70px;">
                     </div>
                     <h3 class="service-title">24/7 Support</h3>
                     <p>Our concierge team is available around the clock to assist with any needs or questions.</p>
                 </div>
                 <div class="service-card card-4">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="service-icon" style="margin-top: -50px;">
+                        <img src="./pics/shild.png" alt="Luxury Car Icon" style="width: 130px; height: 170px; margin-bottom: -70px;">
                     </div>
                     <h3 class="service-title">Premium Insurance</h3>
                     <p>Comprehensive coverage options for complete peace of mind during your rental.</p>
@@ -290,8 +285,8 @@
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="section-title">
-            <h2>Client Testimonials</h2>
-            <p style="color: #0f172a;">What our customers say about their experience</p>
+            <h2 style="color: #273F83;">Client Testimonials</h2>
+            <p style="color: #273F83;">What our customers say about their experience</p>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
@@ -334,7 +329,7 @@
     </section>
 
     <!-- Special Offers -->
-<section class="special-offers" style="background: linear-gradient(to right, #0f172a, #1e293b); padding: 6rem 1.5rem; text-align: center;">
+<section class="special-offers" style="background: url(./pics/bg.png); padding: 6rem 1.5rem; text-align: center;">
     <div class="section-title">
         <h2>Special Offers</h2>
         <p>Exclusive deals for our valued customers</p>
@@ -342,19 +337,19 @@
     <div style="max-width: 1200px; margin: 0 auto;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
             <div class="offer-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow);">
-                <h3 style="color: var(--royal-blue); margin-bottom: 1rem;">Weekend Getaway</h3>
-                <p style="margin-bottom: 1.5rem;">Rent any luxury sedan for 3 days and get the 4th day free!</p>
-                <a href="service.html" style="background: var(--bright-blue); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">View Details</a>
+                <h3 style="color: #273F83; margin-bottom: 1rem;">Weekend Getaway</h3>
+                <p style="margin-bottom: 1.5rem; color: #273F83;">Rent any luxury sedan for 3 days and get the 4th day free!</p>
+                <a href="service.html" style="background: #273F83; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">View Details</a>
             </div>
             <div class="offer-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow);">
-                <h3 style="color: var(--royal-blue); margin-bottom: 1rem;">Monthly Special</h3>
-                <p style="margin-bottom: 1.5rem;">20% off all monthly rentals of premium SUVs</p>
-                <a href="service.html" style="background: var(--bright-blue); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">View Details</a>
+                <h3 style="color: #273F83; margin-bottom: 1rem;">Monthly Special</h3>
+                <p style="margin-bottom: 1.5rem; color: #273F83;">20% off all monthly rentals of premium SUVs</p>
+                <a href="service.html" style="background: #273F83; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">View Details</a>
             </div>
             <div class="offer-card" style="background: white; border-radius: 12px; padding: 2rem; box-shadow: var(--shadow);">
-                <h3 style="color: var(--royal-blue); margin-bottom: 1rem;">Business Travel</h3>
-                <p style="margin-bottom: 1.5rem;">Corporate accounts receive complimentary upgrades</p>
-                <a href="service.html" style="background: var(--bright-blue); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">Learn More</a>
+                <h3 style="color: #273F83; margin-bottom: 1rem;">Business Travel</h3>
+                <p style="margin-bottom: 1.5rem; color: #273F83;">Corporate accounts receive complimentary upgrades</p>
+                <a href="service.html" style="background: #273F83; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">Learn More</a>
             </div>
         </div>
     </div>
@@ -364,8 +359,8 @@
     <!-- FAQ Section -->
   <section class="faq">
     <div class="section-title">
-      <h2>Frequently Asked Questions</h2>
-      <p style="color:#1e293b">Quick answers to common questions</p>
+      <h2 style="color: #273F83;">Frequently Asked Questions</h2>
+      <p style="color:#273F83">Quick answers to common questions</p>
     </div>
     <div style="margin-top: 3rem;">
       <div class="faq-item">

@@ -30,7 +30,7 @@
         }
 
         body {
-            background-color: #f8fafc;
+            background-color: #c4cad1;
             color: var(--dark-gray);
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -38,106 +38,102 @@
 
         /* Header */
         header {
-            background-color: var(--deep-blue);
-            color: var(--white);
-            padding: 1.2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
+    /*background-color: #96c1c8;*/
+    background: #dedfeb;
+    color: #273F83;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            transition: var(--transition);
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-        .logo:hover {
-            color: var(--light-blue);
-        }
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
 
-        .logo i {
-            margin-right: 10px;
-            color: var(--bright-blue);
-        }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            font-size: 1.3rem;
-        }
+.logo i {
+    margin-right: 10px;
+}
 
-        .nav-links li {
-            margin-left: 2rem;
-            position: relative;
-        }
+.nav-links {
+    display: flex;
+    list-style: none;
+    font-size: 1.3rem;
+}
 
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: var(--transition);
-            opacity: 0.9;
-        }
+.nav-links li {
+    margin-left: 2rem;
+    position: relative;
+}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--bright-blue);
-            transition: var(--transition);
-        }
+.nav-links a {
+    color: #273F83;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: var(--transition);
+    opacity: 0.9;
+}
 
-        .nav-links a:hover {
-            color: var(--light-blue);
-            opacity: 1;
-        }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bright-blue);
+    transition: var(--transition);
+}
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.nav-links a:hover {
+    color: #1b3fa3;
+    opacity: 1;
+}
 
-        .nav-icons {
-            margin-left: 2rem;
-            display: flex;
-            gap: 1.5rem;
-        }
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-        .nav-icons a {
-            color: var(--white);
-            font-size: 1.2rem;
-            transition: var(--transition);
-            opacity: 0.9;
-            padding: 0;
-        }
 
-        .nav-icons a:hover {
-            color: var(--bright-blue);
-            opacity: 1;
-            transform: translateY(-2px);
-        }
+.nav-icons {
+    margin-left: 2rem;
+    display: flex;
+    gap: 1.5rem;
+}
 
-        .nav-icons a::after {
-            display: none;
-        }
+.nav-icons a {
+    color: #273F83;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    opacity: 0.9;
+    padding: 0;
+}
+
+.nav-icons a:hover {
+    color: #18295a;
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.nav-icons a::after {
+    display: none;
+}
 
         .mobile-menu {
             display: none;
@@ -214,7 +210,7 @@
         }
 
         .contact-form {
-            background: var(--white);
+            background: url('https://images.unsplash.com/photo-1669820509947-ecaf3cf52a59?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             padding: 2rem;
             border-radius: 10px;
             box-shadow: var(--shadow);
@@ -222,13 +218,14 @@
 
         .contact-form h2 {
             font-size: 1.5rem;
-            color: var(--deep-blue);
+            color: var(--white);
             margin-bottom: 1.5rem;
         }
 
         /* Updated Contact Form Styles */
         .form-section {
-            background: var(--white);
+            background: url('https://images.unsplash.com/photo-1669820509947-ecaf3cf52a59?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: var(--shadow);
@@ -237,16 +234,16 @@
 
         .form-section h1 {
             font-size: 1.8rem;
-            color: var(--deep-blue);
+            color: var(--white);
             margin-bottom: 2rem;
             text-align: center;
         }
 
         .form-section input {
-            background-color: rgba(255, 255, 255, 0.608);
+            background-color: var(--light-gray);
             height: 50px;
-            line-height: 40px;
-            border-radius: 15px;
+            line-height: 50px;
+            border-radius: 5px;
             padding: 0px 20px;
             border: 1px solid #ddd;
             margin-bottom: 20px;
@@ -256,6 +253,7 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+            font-size: 1rem;
         }
         
         .form-section input:focus, 
@@ -275,6 +273,7 @@
             flex: 1;
             width: calc(50% - 10px);
             margin-bottom: 0;
+            font-size: 1rem;
         }
 
         .error-message {
@@ -286,9 +285,9 @@
         }
 
         .form-section textarea {
-            background-color: rgba(255, 255, 255, 0.608);
+            background-color: var(--light-gray);
             height: 120px;
-            border-radius: 10px;
+            border-radius: 5px;
             padding: 10px 20px;
             border: 1px solid #ddd;
             margin-bottom: 20px;
@@ -300,12 +299,13 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+            font-size: 1rem;
         }
         
         .form-section button {
             height: 50px;
             line-height: 40px;
-            border-radius: 30px;
+            border-radius: 5px;
             box-shadow: 0px 0px 5px rgba(88, 87, 87, 0.395);
             font-size: 14px;
             text-transform: uppercase;
@@ -393,7 +393,8 @@
         }
 
         .info-card {
-            background: var(--white);
+            background: url(./pics/bg2.png);
+            background-size: cover;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: var(--shadow);
@@ -407,18 +408,18 @@
 
         .info-card i {
             font-size: 2rem;
-            color: var(--bright-blue);
+            color: rgb(228, 213, 213);
             margin-bottom: 1rem;
         }
 
         .info-card h3 {
             font-size: 1.3rem;
-            color: var(--deep-blue);
+            color: rgb(228, 213, 213);
             margin-bottom: 0.5rem;
         }
 
         .info-card p {
-            color: var(--dark-gray);
+            color: rgb(228, 213, 213);
         }
 
         /* Map Section */
@@ -669,9 +670,9 @@
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <i class="fas fa-car"></i>
-                <span>Luxury Rentals</span>
+            <div class="logo" style="margin-top: -50px;">
+                <img src="./pics/logo1.png" alt="Luxury Rentals Logo" style="width: 150px; height: 200px; margin-bottom: -50px;">
+
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>

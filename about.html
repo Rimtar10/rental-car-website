@@ -30,114 +30,109 @@
         }
 
         body {
-            background-color: #f8fafc;
+            background-color: #c4cad1;
             color: var(--dark-gray);
             line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        /* Header */
         header {
-            background-color: var(--deep-blue);
-            color: var(--white);
-            padding: 1.2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
+    /*background-color: #96c1c8;*/
+    background: #dedfeb;
+    color: #273F83;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            transition: var(--transition);
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-        .logo:hover {
-            color: var(--light-blue);
-        }
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
 
-        .logo i {
-            margin-right: 10px;
-            color: var(--bright-blue);
-        }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            font-size: 1.3rem;
-        }
+.logo i {
+    margin-right: 10px;
+}
 
-        .nav-links li {
-            margin-left: 2rem;
-            position: relative;
-        }
+.nav-links {
+    display: flex;
+    list-style: none;
+    font-size: 1.3rem;
+}
 
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: var(--transition);
-            opacity: 0.9;
-        }
+.nav-links li {
+    margin-left: 2rem;
+    position: relative;
+}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--bright-blue);
-            transition: var(--transition);
-        }
+.nav-links a {
+    color: #273F83;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: var(--transition);
+    opacity: 0.9;
+}
 
-        .nav-links a:hover {
-            color: var(--light-blue);
-            opacity: 1;
-        }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bright-blue);
+    transition: var(--transition);
+}
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.nav-links a:hover {
+    color: #1b3fa3;
+    opacity: 1;
+}
 
-        .nav-icons {
-            margin-left: 2rem;
-            display: flex;
-            gap: 1.5rem;
-        }
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-        .nav-icons a {
-            color: var(--white);
-            font-size: 1.2rem;
-            transition: var(--transition);
-            opacity: 0.9;
-            padding: 0;
-        }
 
-        .nav-icons a:hover {
-            color: var(--bright-blue);
-            opacity: 1;
-            transform: translateY(-2px);
-        }
+.nav-icons {
+    margin-left: 2rem;
+    display: flex;
+    gap: 1.5rem;
+}
 
-        .nav-icons a::after {
-            display: none;
-        }
+.nav-icons a {
+    color: #273F83;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    opacity: 0.9;
+    padding: 0;
+}
+
+.nav-icons a:hover {
+    color: #18295a;
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.nav-icons a::after {
+    display: none;
+}
 
         .mobile-menu {
             display: none;
@@ -215,7 +210,7 @@
 
         .about-text h2 {
             font-size: 1.8rem;
-            color: var(--deep-blue);
+            color: #273F83;
             margin-bottom: 1rem;
         }
 
@@ -226,7 +221,7 @@
         }
 
         .highlight {
-            color: var(--bright-blue);
+            color: #485f9e;
             font-weight: 600;
         }
 
@@ -241,7 +236,7 @@
         }
 
         .stat-label {
-            color: var(--dark-gray);
+            color: #273F83;
             font-size: 1rem;
         }
 
@@ -516,7 +511,7 @@
         .stat-number {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--bright-blue);
+    color: #273F83;
     margin-bottom: 0.5rem;
     display: inline-block;
     min-width: 80px; /* Adjust based on your largest number + '+' */
@@ -699,9 +694,8 @@
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <i class="fas fa-car"></i>
-                <span>Luxury Rentals</span>
+            <div class="logo" style="margin-top: -50px;">
+                <img src="./pics/logo1.png" alt="Luxury Rentals Logo" style="width: 150px; height: 200px; margin-bottom: -50px;">
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -740,7 +734,7 @@
                 <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&q=80" alt="Luxury Car">
                 
                 <div class="about-history" style="margin-top: 2rem;">
-                    <h2>Our Story</h2>
+                    <h2 style="color: #273F83;">Our Story</h2>
                     <p>Founded in 2015, Luxury Rentals began with a simple mission: to provide exceptional vehicles with unparalleled service. What started as a small fleet of premium cars has grown into Lebanon's premier luxury rental service.</p>
                     <p>Our team of automotive enthusiasts carefully curates each vehicle in our collection, ensuring only the finest models meet our exacting standards.</p>
                 </div>
@@ -751,7 +745,7 @@
                 <p>At Luxury Rentals, we're committed to delivering <span class="highlight">premium vehicles</span> with <span class="highlight">exceptional service</span>. Our fleet includes the latest models from the world's most prestigious manufacturers, all meticulously maintained for your safety and comfort.</p>
                 <p>We offer <span class="highlight">24/7 concierge service</span>, <span class="highlight">flexible rental terms</span>, and <span class="highlight">competitive pricing</span> to make your experience seamless from start to finish.</p>
 
-                <div class="stats-section1">
+                <div class="stats-section1" >
                     <div class="stat-card">
                         <div class="stat-number" id="cars-count">0</div>
                         <div class="stat-label">Vehicles in Fleet</div>

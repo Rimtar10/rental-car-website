@@ -829,10 +829,9 @@ function updateCartCount() {
     }
   }
   
-  // Call this whenever the cart changes
   updateCartCount();
 
-// Add to cart functionality with toast notifications
+
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('add-to-cart')) {
         const carId = e.target.dataset.carId;
@@ -871,4 +870,36 @@ function showToast(message, type = 'success') {
         setTimeout(() => toast.remove(), 300);
     }, 3000);
 }
+
+
+// Add to your script.js file or before closing </body> tag
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingOverlay = document.getElementById('logo-loading-overlay');
+    const logoPart1 = document.getElementById('logo-part-1');
+    const logoPart2 = document.getElementById('logo-part-2');
+    const logoPart3 = document.getElementById('logo-part-3');
+    
+    // Show first part immediately
+    logoPart1.classList.add('visible');
+    
+    // Show second part after 600ms
+    setTimeout(() => {
+      logoPart2.classList.add('visible');
+      
+      // Show third part after another 600ms
+      setTimeout(() => {
+        logoPart3.classList.add('visible');
+        
+        // Hide loading screen after all parts are visible
+        setTimeout(() => {
+          loadingOverlay.style.opacity = '0';
+          
+          // Remove from DOM after fade out
+          setTimeout(() => {
+            loadingOverlay.style.display = 'none';
+          }, 500);
+        }, 800);
+      }, 600);
+    }, 600);
+  });
   

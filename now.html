@@ -24,7 +24,10 @@
         }
         
         body {
-            background-color: #f8fafc;
+            background-color: #c4cad1;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
         
         .contact-container {
@@ -137,30 +140,23 @@
     font-family: 'Georgia', serif;
 }
 
-body {
-    background-color: #f8fafc;
-    color: var(--dark-gray);
-    line-height: 1.6;
-    scroll-behavior: smooth;
-}
-
 /* Header */
 header {
-    background-color: var(--deep-blue);
-    color: var(--white);
-    padding: 1.2rem;
+    /*background-color: #96c1c8;*/
+    background: #dedfeb;
+    color: #273F83;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: var(--shadow);
     transition: var(--transition);
 }
+
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -169,17 +165,12 @@ nav {
     font-weight: bold;
     display: flex;
     align-items: center;
-    color: var(--white);
     transition: var(--transition);
 }
 
-.logo:hover {
-    color: var(--light-blue);
-}
 
 .logo i {
     margin-right: 10px;
-    color: var(--bright-blue);
 }
 
 .nav-links {
@@ -194,7 +185,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: #273F83;
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 0;
@@ -215,7 +206,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--light-blue);
+    color: #1b3fa3;
     opacity: 1;
 }
 
@@ -231,7 +222,7 @@ nav {
 }
 
 .nav-icons a {
-    color: var(--white);
+    color: #273F83;
     font-size: 1.2rem;
     transition: var(--transition);
     opacity: 0.9;
@@ -239,7 +230,7 @@ nav {
 }
 
 .nav-icons a:hover {
-    color: var(--bright-blue);
+    color: #18295a;
     opacity: 1;
     transform: translateY(-2px);
 }
@@ -247,7 +238,6 @@ nav {
 .nav-icons a::after {
     display: none;
 }
-
 .mobile-menu {
     display: none;
     font-size: 1.5rem;
@@ -489,9 +479,9 @@ footer::before {
 
     <header>
         <nav>
-            <div class="logo">
-                <i class="fas fa-car"></i>
-                <span>Luxury Rentals</span>
+            <div class="logo" style="margin-top: -50px;">
+                <img src="./pics/logo1.png" alt="Luxury Rentals Logo" style="width: 150px; height: 200px; margin-bottom: -50px;">
+
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>

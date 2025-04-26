@@ -29,7 +29,6 @@
 }
 
 body {
-    background-color: #f8fafc;
     color: var(--dark-gray);
     line-height: 1.6;
     scroll-behavior: smooth;
@@ -37,21 +36,21 @@ body {
 
 /* Header */
 header {
-    background-color: var(--deep-blue);
-    color: var(--white);
-    padding: 1.2rem;
+    /*background-color: #96c1c8;*/
+    background: #dedfeb;
+    color: #273F83;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: var(--shadow);
     transition: var(--transition);
 }
+
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -60,32 +59,27 @@ nav {
     font-weight: bold;
     display: flex;
     align-items: center;
-    color: var(--white);
     transition: var(--transition);
 }
 
-.logo:hover {
-    color: var(--light-blue);
-}
 
 .logo i {
     margin-right: 10px;
-    color: var(--bright-blue);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
+    font-size: 1.3rem;
 }
 
 .nav-links li {
     margin-left: 2rem;
     position: relative;
-    font-size: 1.3rem;
 }
 
 .nav-links a {
-    color: var(--white);
+    color: #273F83;
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 0;
@@ -106,7 +100,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--light-blue);
+    color: #1b3fa3;
     opacity: 1;
 }
 
@@ -122,7 +116,7 @@ nav {
 }
 
 .nav-icons a {
-    color: var(--white);
+    color: #273F83;
     font-size: 1.2rem;
     transition: var(--transition);
     opacity: 0.9;
@@ -130,7 +124,7 @@ nav {
 }
 
 .nav-icons a:hover {
-    color: var(--bright-blue);
+    color: #18295a;
     opacity: 1;
     transform: translateY(-2px);
 }
@@ -138,7 +132,6 @@ nav {
 .nav-icons a::after {
     display: none;
 }
-
 .mobile-menu {
     display: none;
     font-size: 1.5rem;
@@ -390,7 +383,7 @@ footer::before {
 }
 
 .checkout-btn {
-  background: var(--bright-blue);
+  background: #273F83;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -458,9 +451,9 @@ footer::before {
    
     <header>
         <nav>
-            <div class="logo">
-                <i class="fas fa-car"></i>
-                <span>Luxury Rentals</span>
+            <div class="logo" style="margin-top: -50px;">
+                <img src="./pics/logo1.png" alt="Luxury Rentals Logo" style="width: 150px; height: 200px; margin-bottom: -50px;">
+
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
@@ -498,10 +491,8 @@ footer::before {
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Update favorite count from localStorage
             updateFavoriteCount();
             
-            // Set up mobile menu toggle
             setupMobileMenu();
             
             // Function to update favorite count in the header
@@ -586,7 +577,7 @@ function removeFromCart(index) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   cart.splice(index, 1);
   localStorage.setItem('cart', JSON.stringify(cart));
-  location.reload(); // Refresh to show updated cart
+  location.reload();
 }
 
 function updateCartCount() {

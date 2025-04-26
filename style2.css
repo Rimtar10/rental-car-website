@@ -26,22 +26,23 @@ body {
 }
 
 /* Header */
-header {
-    background-color: var(--deep-blue);
-    color: var(--white);
-    padding: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
+
+    header {
+        /*background-color: #96c1c8;*/
+        background: #dedfeb;
+        color: #273F83;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        transition: var(--transition);
+    }
+    
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -50,17 +51,12 @@ nav {
     font-weight: bold;
     display: flex;
     align-items: center;
-    color: var(--white);
     transition: var(--transition);
 }
 
-.logo:hover {
-    color: var(--light-blue);
-}
 
 .logo i {
     margin-right: 10px;
-    color: var(--bright-blue);
 }
 
 .nav-links {
@@ -75,7 +71,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: #273F83;
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 0;
@@ -96,7 +92,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--light-blue);
+    color: #1b3fa3;
     opacity: 1;
 }
 
@@ -112,7 +108,7 @@ nav {
 }
 
 .nav-icons a {
-    color: var(--white);
+    color: #273F83;
     font-size: 1.2rem;
     transition: var(--transition);
     opacity: 0.9;
@@ -120,7 +116,7 @@ nav {
 }
 
 .nav-icons a:hover {
-    color: var(--bright-blue);
+    color: #18295a;
     opacity: 1;
     transform: translateY(-2px);
 }
@@ -231,7 +227,7 @@ opacity: 1;
 .search-title {
 text-align: center;
 margin-bottom: 2rem;
-color: var(--deep-blue);
+color: #273F83;
 font-size: 1.8rem;
 }
 
@@ -254,7 +250,7 @@ padding: 2rem;
 display: block;
 margin-bottom: 0.8rem;
 font-weight: 600;
-color: var(--deep-blue);
+color: #273F83;
 }
 
 .form-control {
@@ -306,9 +302,9 @@ margin-top: 0;
 
 .search-button {
 padding: 1rem 2rem;
-background-color: var(--deep-blue);
+background-color: #273F83;
 color: white;
-border: 2px solid var(--deep-blue); /* Matching border */
+border: 2px solid ; /* Matching border */
 border-radius: 8px;
 cursor: pointer;
 font-weight: bold;
@@ -539,7 +535,7 @@ font-size: 1.2rem;
     padding: 10px 20px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 11px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
